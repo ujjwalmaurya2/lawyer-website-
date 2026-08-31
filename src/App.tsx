@@ -5,6 +5,7 @@ import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { MobileActionBar } from './components/layout/MobileActionBar';
 import { AdminSidebar } from './components/layout/AdminSidebar';
+import { BrandReveal } from './components/common/BrandReveal';
 
 // Public Pages
 import { HomePage } from './pages/public/HomePage';
@@ -40,6 +41,7 @@ const ScrollToTop = () => {
 const PublicLayout: React.FC = () => {
   return (
     <div className="min-h-screen bg-ivory-100 text-charcoal-900 dark:bg-[#0B0D0E] dark:text-ivory-100 flex flex-col font-sans transition-colors duration-200 selection:bg-brass-500/20 selection:text-brass-800 dark:selection:text-brass-300">
+      <BrandReveal />
       <Navbar />
       <main className="flex-1">
         <Outlet />
