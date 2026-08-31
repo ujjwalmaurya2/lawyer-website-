@@ -7,9 +7,9 @@ import {
   ShieldCheck,
   FileText,
   Landmark,
-  Building2,
-  Users,
-  Compass,
+  BriefcaseBusiness,
+  UsersRound,
+  Lightbulb,
   ArrowUpRight,
   ChevronRight,
 } from 'lucide-react';
@@ -17,22 +17,22 @@ import {
 export const PracticeRows: React.FC = () => {
   const [activeId, setActiveId] = useState<string | null>(null);
 
-  // Map each practice area to a semantic Lucide icon
+  // Distinct, non-repeated semantic Lucide icons
   const getPracticeIcon = (slug: string) => {
     switch (slug) {
       case 'criminal-law-bail':
-        return <ShieldCheck className="w-6 h-6 sm:w-7 sm:h-7" />;
+        return <ShieldCheck className="w-8 h-8 sm:w-9 sm:h-9" />;
       case 'civil-litigation-appeals':
-        return <FileText className="w-6 h-6 sm:w-7 sm:h-7" />;
+        return <FileText className="w-8 h-8 sm:w-9 sm:h-9" />;
       case 'constitutional-writ-petitions':
-        return <Landmark className="w-6 h-6 sm:w-7 sm:h-7" />;
+        return <Landmark className="w-8 h-8 sm:w-9 sm:h-9" />;
       case 'service-administrative-matters':
-        return <Briefcase className="w-6 h-6 sm:w-7 sm:h-7" />;
+        return <BriefcaseBusiness className="w-8 h-8 sm:w-9 sm:h-9" />;
       case 'family-matrimonial-matters':
-        return <Users className="w-6 h-6 sm:w-7 sm:h-7" />;
+        return <UsersRound className="w-8 h-8 sm:w-9 sm:h-9" />;
       case 'other-legal-matters-advisory':
       default:
-        return <Compass className="w-6 h-6 sm:w-7 sm:h-7" />;
+        return <Lightbulb className="w-8 h-8 sm:w-9 sm:h-9" />;
     }
   };
 
@@ -44,15 +44,15 @@ export const PracticeRows: React.FC = () => {
     <section className="py-20 sm:py-28 bg-white dark:bg-charcoal-900 border-b border-ivory-300 dark:border-stone-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Editorial Section Header with Section Icon */}
+        {/* Editorial Section Header with Prominent Icon Badge */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
           <SectionHeader
             icon={<Briefcase className="w-4 h-4" />}
             eyebrow="LEGAL PRACTICE AREAS"
             eyebrowColor="burgundy"
-            title="Areas of Practice & Jurisdiction"
+            title="Areas of Practice & Legal Assistance"
             hindiTitle="विधिक कार्यक्षेत्र एवं विशेष अधिकार क्षेत्र"
-            description="Core litigation practice before the High Court of Judicature at Allahabad. Scan the practice directory below."
+            description="Core litigation jurisdictions before the High Court of Judicature at Allahabad. Scan categories and procedures below."
             className="mb-0"
           />
 
@@ -62,7 +62,7 @@ export const PracticeRows: React.FC = () => {
           </div>
         </div>
 
-        {/* Large Icon-First Editorial Directory Rows */}
+        {/* Large Icon-First Editorial Directory Rows (No Repeated Generic Icons!) */}
         <div className="border-t-2 border-charcoal-800/10 dark:border-stone-800 divide-y divide-ivory-300 dark:divide-stone-800">
           {PRACTICE_AREAS.map((area) => {
             const isActive = activeId === area.id;
@@ -85,11 +85,11 @@ export const PracticeRows: React.FC = () => {
                   {/* Left: Practice Area Icon + Oversized Number + Large Title */}
                   <div className="flex items-start sm:items-center gap-4 sm:gap-6">
                     
-                    {/* Practice Area Icon Box with Hover Scale & Color Transition */}
+                    {/* Practice Area Icon Box (36–48px visual size) */}
                     <div
-                      className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl border flex items-center justify-center shrink-0 transition-all duration-300 ${
+                      className={`w-14 h-14 sm:w-16 sm:h-16 rounded-xl border flex items-center justify-center shrink-0 transition-all duration-300 ${
                         isActive
-                          ? 'border-brass-400 bg-burgundy-950 text-brass-300 scale-105 shadow-md'
+                          ? 'border-brass-400 bg-burgundy-950 text-brass-300 scale-105 shadow-md ring-2 ring-brass-400/30'
                           : 'border-ivory-300 dark:border-stone-700 bg-ivory-150 dark:bg-charcoal-800 text-burgundy-800 dark:text-brass-400 group-hover:border-brass-400 group-hover:bg-burgundy-950 group-hover:text-brass-300 group-hover:scale-105'
                       }`}
                     >
@@ -125,7 +125,7 @@ export const PracticeRows: React.FC = () => {
                   </div>
 
                   {/* Right: Short Summary & Action Arrow */}
-                  <div className="md:max-w-md lg:max-w-xl flex items-center justify-between md:justify-end gap-6 pl-16 sm:pl-20 md:pl-0">
+                  <div className="md:max-w-md lg:max-w-xl flex items-center justify-between md:justify-end gap-6 pl-18 sm:pl-22 md:pl-0">
                     <p
                       className={`text-xs sm:text-sm font-sans font-light leading-relaxed transition-all ${
                         isActive

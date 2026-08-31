@@ -3,11 +3,42 @@ import { Link } from 'react-router-dom';
 import { LEGAL_INSIGHTS } from '../../data/insights';
 import { SectionHeader } from '../common/SectionHeader';
 import { Badge } from '../common/Badge';
-import { ArrowUpRight, Clock, BookOpen, Calendar, Tag, FileText } from 'lucide-react';
+import {
+  BookOpen,
+  Landmark,
+  ScrollText,
+  GitBranch,
+  Building2,
+  MessageCircle,
+  Files,
+  Calendar,
+  Clock,
+  ArrowUpRight,
+  FileText,
+} from 'lucide-react';
 
 export const InsightsPreview: React.FC = () => {
   const featured = LEGAL_INSIGHTS[0];
   const sideInsights = LEGAL_INSIGHTS.slice(1, 3);
+
+  // Helper for category-specific semantic icon
+  const getCategoryIcon = (category: string) => {
+    switch (category.toLowerCase()) {
+      case 'constitutional law':
+        return <Landmark className="w-3.5 h-3.5" />;
+      case 'writ petitions':
+        return <ScrollText className="w-3.5 h-3.5" />;
+      case 'litigation procedure':
+        return <GitBranch className="w-3.5 h-3.5" />;
+      case 'high court procedure':
+        return <Building2 className="w-3.5 h-3.5" />;
+      case 'consultation preparation':
+        return <MessageCircle className="w-3.5 h-3.5" />;
+      case 'legal documents':
+      default:
+        return <Files className="w-3.5 h-3.5" />;
+    }
+  };
 
   return (
     <section className="py-20 sm:py-28 bg-ivory-100 dark:bg-charcoal-900 border-b border-ivory-300 dark:border-stone-800 transition-colors">
@@ -33,7 +64,7 @@ export const InsightsPreview: React.FC = () => {
           </Link>
         </div>
 
-        {/* Editorial Magazine Layout with Scannable Metadata Icons */}
+        {/* Editorial Magazine Layout with Distinct Category Icons */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
           
           {/* Large Featured Magazine Article (7 Columns) */}
@@ -46,8 +77,8 @@ export const InsightsPreview: React.FC = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <Badge variant="burgundy">FEATURED ESSAY</Badge>
-                    <span className="inline-flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded bg-navy-100 dark:bg-navy-950 text-navy-800 dark:text-navy-300 border border-navy-300 dark:border-navy-800 font-bold">
-                      <Tag className="w-3 h-3 text-navy-600" />
+                    <span className="inline-flex items-center gap-1.5 text-[10px] font-mono px-2.5 py-0.5 rounded bg-navy-100 dark:bg-navy-950 text-navy-800 dark:text-navy-300 border border-navy-300 dark:border-navy-800 font-bold">
+                      {getCategoryIcon(featured.category)}
                       <span>{featured.category}</span>
                     </span>
                   </div>
@@ -93,7 +124,7 @@ export const InsightsPreview: React.FC = () => {
 
           {/* Asymmetrical Side Articles Stack (5 Columns) */}
           <div className="lg:col-span-5 flex flex-col justify-between gap-6">
-            {sideInsights.map((insight, idx) => (
+            {sideInsights.map((insight) => (
               <Link
                 key={insight.id}
                 to={`/insights/${insight.slug}`}
@@ -101,8 +132,8 @@ export const InsightsPreview: React.FC = () => {
               >
                 <div className="space-y-2.5">
                   <div className="flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded bg-ivory-200 dark:bg-charcoal-800 border border-ivory-300 dark:border-stone-700 text-stone-800 dark:text-stone-300 font-bold">
-                      <Tag className="w-3 h-3 text-burgundy-800 dark:text-brass-400" />
+                    <span className="inline-flex items-center gap-1.5 text-[10px] font-mono px-2.5 py-0.5 rounded bg-ivory-200 dark:bg-charcoal-800 border border-ivory-300 dark:border-stone-700 text-stone-800 dark:text-stone-300 font-bold">
+                      {getCategoryIcon(insight.category)}
                       <span>{insight.category}</span>
                     </span>
 

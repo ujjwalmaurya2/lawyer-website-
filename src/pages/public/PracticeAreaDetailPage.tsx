@@ -10,14 +10,14 @@ import {
   ShieldCheck,
   FileText,
   Landmark,
-  Briefcase,
-  Users,
-  Compass,
+  BriefcaseBusiness,
+  UsersRound,
+  Lightbulb,
   MessageSquare,
-  FileCheck,
   Scale,
-  Calendar,
-  Building2,
+  ClipboardList,
+  CheckCircle2,
+  Building,
 } from 'lucide-react';
 
 export const PracticeAreaDetailPage: React.FC = () => {
@@ -28,22 +28,22 @@ export const PracticeAreaDetailPage: React.FC = () => {
     return <Navigate to="/practice-areas" replace />;
   }
 
-  // Get semantic icon
+  // Get semantic icon matching the directory
   const getHeaderIcon = (s: string) => {
     switch (s) {
       case 'criminal-law-bail':
-        return <ShieldCheck className="w-8 h-8 sm:w-10 sm:h-10 text-burgundy-800 dark:text-brass-400" />;
+        return <ShieldCheck className="w-9 h-9 sm:w-10 sm:h-10 text-burgundy-800 dark:text-brass-400" />;
       case 'civil-litigation-appeals':
-        return <FileText className="w-8 h-8 sm:w-10 sm:h-10 text-burgundy-800 dark:text-brass-400" />;
+        return <FileText className="w-9 h-9 sm:w-10 sm:h-10 text-burgundy-800 dark:text-brass-400" />;
       case 'constitutional-writ-petitions':
-        return <Landmark className="w-8 h-8 sm:w-10 sm:h-10 text-burgundy-800 dark:text-brass-400" />;
+        return <Landmark className="w-9 h-9 sm:w-10 sm:h-10 text-burgundy-800 dark:text-brass-400" />;
       case 'service-administrative-matters':
-        return <Briefcase className="w-8 h-8 sm:w-10 sm:h-10 text-burgundy-800 dark:text-brass-400" />;
+        return <BriefcaseBusiness className="w-9 h-9 sm:w-10 sm:h-10 text-burgundy-800 dark:text-brass-400" />;
       case 'family-matrimonial-matters':
-        return <Users className="w-8 h-8 sm:w-10 sm:h-10 text-burgundy-800 dark:text-brass-400" />;
+        return <UsersRound className="w-9 h-9 sm:w-10 sm:h-10 text-burgundy-800 dark:text-brass-400" />;
       case 'other-legal-matters-advisory':
       default:
-        return <Compass className="w-8 h-8 sm:w-10 sm:h-10 text-burgundy-800 dark:text-brass-400" />;
+        return <Lightbulb className="w-9 h-9 sm:w-10 sm:h-10 text-burgundy-800 dark:text-brass-400" />;
     }
   };
 
@@ -60,7 +60,7 @@ export const PracticeAreaDetailPage: React.FC = () => {
           <span>Back to Practice Jurisdictions</span>
         </Link>
 
-        {/* Header Block with Large Icon */}
+        {/* Header Block with Large 48px Visual Icon */}
         <div className="space-y-4 border-b border-ivory-300 dark:border-stone-800 pb-8 sm:pb-10">
           <div className="flex items-center gap-4">
             <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white dark:bg-charcoal-850 border-2 border-brass-500/50 flex items-center justify-center p-3 shadow-md">
@@ -105,19 +105,26 @@ export const PracticeAreaDetailPage: React.FC = () => {
               </p>
             </div>
 
-            {/* Common Matters: Visual Icon Cards */}
+            {/* Visual Service Items: Icon + Short Heading + Concise Description */}
             <div className="space-y-4 pt-4 border-t border-ivory-300 dark:border-stone-800">
               <div className="flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-burgundy-800 dark:text-brass-400 font-bold font-mono">
-                <FileCheck className="w-4 h-4" />
-                <span>Specific Matter Types Handled</span>
+                <ShieldCheck className="w-4 h-4" />
+                <span>Key Matters & Procedural Representation</span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {area.commonMatters.map((item, idx) => (
                   <div key={idx} className="p-4 rounded-xl bg-white dark:bg-charcoal-850 border border-ivory-300 dark:border-stone-800/80 flex items-start gap-3 shadow-sm hover:border-burgundy-800/40 transition-colors">
-                    <span className="w-6 h-6 rounded-md bg-ivory-150 dark:bg-charcoal-800 flex items-center justify-center font-mono text-xs font-bold text-burgundy-800 dark:text-brass-400 shrink-0">
+                    <span className="w-7 h-7 rounded-lg bg-burgundy-100 dark:bg-burgundy-950/80 border border-burgundy-300 dark:border-burgundy-800/60 flex items-center justify-center font-mono text-xs font-bold text-burgundy-800 dark:text-brass-400 shrink-0">
                       0{idx + 1}
                     </span>
-                    <span className="text-xs sm:text-sm text-stone-800 dark:text-stone-200 leading-snug font-medium">{item}</span>
+                    <div>
+                      <h4 className="text-xs sm:text-sm text-charcoal-800 dark:text-stone-200 font-medium leading-snug">
+                        {item}
+                      </h4>
+                      <p className="text-[11px] text-stone-500 dark:text-stone-400 font-light mt-0.5">
+                        High Court procedural drafting, registry compliance & bench arguments.
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -126,7 +133,7 @@ export const PracticeAreaDetailPage: React.FC = () => {
             {/* Chamber Approach */}
             <div className="space-y-4 pt-4 border-t border-ivory-300 dark:border-stone-800">
               <div className="flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-burgundy-800 dark:text-brass-400 font-bold font-mono">
-                <Building2 className="w-4 h-4" />
+                <ClipboardList className="w-4 h-4" />
                 <span>Chamber Approach to Case Preparation</span>
               </div>
               <div className="space-y-3">

@@ -139,16 +139,18 @@ export interface ConsultationLead {
 export interface CalendarEvent {
   id: string;
   title: string;
-  eventType: 'Court Hearing' | 'Consultation' | 'Chamber Meeting' | 'Unavailable';
+  eventType: 'Court Hearing' | 'Client Consultation' | 'Consultation' | 'Chamber Meeting' | 'Other' | 'Unavailable';
   date: string;
   startTime: string;
   endTime: string;
   courtRoom?: string;
   location: string;
   matterId?: string;
+  matterNumber?: string;
   clientName?: string;
-  status: 'Confirmed' | 'Tentative' | 'Completed' | 'Urgent';
+  status: 'Confirmed' | 'Tentative' | 'Completed' | 'Urgent' | 'Scheduled' | 'Cancelled';
   availability: 'Court' | 'Consultation' | 'Busy' | 'Available' | 'Unavailable';
+  notes?: string;
   isDemoData: boolean;
 }
 

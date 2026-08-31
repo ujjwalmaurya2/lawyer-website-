@@ -11,7 +11,11 @@ import {
   Phone,
   MessageSquare,
   Scale,
+  Users,
   ShieldCheck,
+  Building,
+  UserPlus,
+  Landmark,
 } from 'lucide-react';
 import { ADMIN_STATS_DEMO, DEMO_CONSULTATION_LEADS, DEMO_CALENDAR_EVENTS } from '../../data/adminMockData';
 import { DEMO_MATTERS } from '../../data/matters';
@@ -58,6 +62,58 @@ export const AdminDashboardPage: React.FC = () => {
             className="text-xs uppercase tracking-wider text-stone-700 dark:text-stone-400 hover:text-burgundy-800 dark:hover:text-ivory-100 px-3 py-2 rounded-lg bg-white dark:bg-charcoal-850 border border-ivory-300 dark:border-stone-800 font-bold font-mono shadow-sm"
           >
             Public Site
+          </Link>
+        </div>
+      </div>
+
+      {/* QUICK ACTIONS BAR */}
+      <div className="p-4 sm:p-5 rounded-xl bg-white dark:bg-charcoal-850 border border-ivory-300 dark:border-stone-800 shadow-soft-light dark:shadow-none space-y-3">
+        <div className="flex items-center justify-between">
+          <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-burgundy-800 dark:text-brass-400 font-mono font-bold">
+            PRACTICE QUICK ACTIONS
+          </span>
+          <span className="text-[11px] text-stone-500 font-mono">Instant operational workflows</span>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
+          <Link
+            to="/admin/cases"
+            className="p-3 rounded-lg border border-ivory-300 dark:border-stone-700 bg-ivory-150/70 dark:bg-charcoal-900 hover:border-burgundy-800 hover:bg-burgundy-50 dark:hover:bg-burgundy-950/40 transition-colors flex items-center gap-2.5 text-xs font-mono font-bold text-stone-800 dark:text-ivory-100 group"
+          >
+            <div className="w-7 h-7 rounded-md bg-burgundy-100 dark:bg-burgundy-950 text-burgundy-800 dark:text-brass-400 flex items-center justify-center shrink-0">
+              <Plus className="w-4 h-4" />
+            </div>
+            <span className="group-hover:text-burgundy-800 dark:group-hover:text-brass-300">Add Matter</span>
+          </Link>
+
+          <Link
+            to="/admin/calendar"
+            className="p-3 rounded-lg border border-ivory-300 dark:border-stone-700 bg-ivory-150/70 dark:bg-charcoal-900 hover:border-navy-800 hover:bg-navy-50 dark:hover:bg-navy-950/40 transition-colors flex items-center gap-2.5 text-xs font-mono font-bold text-stone-800 dark:text-ivory-100 group"
+          >
+            <div className="w-7 h-7 rounded-md bg-navy-100 dark:bg-navy-950 text-navy-800 dark:text-navy-300 flex items-center justify-center shrink-0">
+              <Landmark className="w-4 h-4" />
+            </div>
+            <span className="group-hover:text-navy-900 dark:group-hover:text-navy-300">Add Hearing</span>
+          </Link>
+
+          <Link
+            to="/admin/leads"
+            className="p-3 rounded-lg border border-ivory-300 dark:border-stone-700 bg-ivory-150/70 dark:bg-charcoal-900 hover:border-terracotta-700 hover:bg-terracotta-50 dark:hover:bg-terracotta-950/40 transition-colors flex items-center gap-2.5 text-xs font-mono font-bold text-stone-800 dark:text-ivory-100 group"
+          >
+            <div className="w-7 h-7 rounded-md bg-terracotta-100 dark:bg-terracotta-950 text-terracotta-800 dark:text-terracotta-300 flex items-center justify-center shrink-0">
+              <MessageSquare className="w-4 h-4" />
+            </div>
+            <span className="group-hover:text-terracotta-800 dark:group-hover:text-terracotta-300">Consultations</span>
+          </Link>
+
+          <Link
+            to="/admin/clients"
+            className="p-3 rounded-lg border border-ivory-300 dark:border-stone-700 bg-ivory-150/70 dark:bg-charcoal-900 hover:border-sage-700 hover:bg-sage-50 dark:hover:bg-sage-950/40 transition-colors flex items-center gap-2.5 text-xs font-mono font-bold text-stone-800 dark:text-ivory-100 group"
+          >
+            <div className="w-7 h-7 rounded-md bg-sage-100 dark:bg-sage-950 text-sage-800 dark:text-sage-300 flex items-center justify-center shrink-0">
+              <UserPlus className="w-4 h-4" />
+            </div>
+            <span className="group-hover:text-sage-800 dark:group-hover:text-sage-300">Client Directory</span>
           </Link>
         </div>
       </div>

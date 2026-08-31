@@ -49,7 +49,7 @@ export const Navbar: React.FC = () => {
     setMobileAboutExpanded(false);
   }, [location.pathname]);
 
-  // Click outside listener for About dropdown
+  // Click outside & Escape listener for About dropdown
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -88,8 +88,8 @@ export const Navbar: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#F2ECE1]/95 dark:bg-charcoal-950/95 backdrop-blur-md border-b border-brass-500/30 py-2.5 sm:py-3 shadow-md'
-          : 'bg-[#F4EFE6] dark:bg-[#0B0D0E]/95 border-b border-brass-500/25 py-3 sm:py-3.5 shadow-sm'
+          ? 'bg-[#F0E9DC]/98 dark:bg-charcoal-950/95 backdrop-blur-md border-b-2 border-brass-500/40 py-2.5 sm:py-3 shadow-md'
+          : 'bg-[#F0E9DC] dark:bg-[#0B0D0E]/98 border-b-2 border-brass-500/35 py-3 sm:py-3.5 shadow-sm'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -121,7 +121,7 @@ export const Navbar: React.FC = () => {
                   : 'text-stone-700 dark:text-stone-300 hover:text-burgundy-800 dark:hover:text-ivory-100'
               }`}
             >
-              <House className="w-3.5 h-3.5" />
+              <House className="w-3.5 h-3.5 text-burgundy-800 dark:text-brass-400" />
               <span>Home</span>
               {isCurrent('/') && (
                 <span className="absolute bottom-0 left-1 right-1 h-[2px] bg-burgundy-800 dark:bg-brass-400" />
@@ -137,14 +137,14 @@ export const Navbar: React.FC = () => {
                   : 'text-stone-700 dark:text-stone-300 hover:text-burgundy-800 dark:hover:text-ivory-100'
               }`}
             >
-              <Briefcase className="w-3.5 h-3.5" />
+              <Briefcase className="w-3.5 h-3.5 text-burgundy-800 dark:text-brass-400" />
               <span>Practice</span>
               {isCurrent('/practice-areas') && (
                 <span className="absolute bottom-0 left-1 right-1 h-[2px] bg-burgundy-800 dark:bg-brass-400" />
               )}
             </Link>
 
-            {/* 03. About with Premium Dropdown Mega-Menu */}
+            {/* 03. About with Premium Dropdown (Contrasting #FFFDF8 Surface) */}
             <div
               ref={dropdownRef}
               className="relative"
@@ -161,25 +161,25 @@ export const Navbar: React.FC = () => {
                 aria-expanded={aboutDropdownOpen}
                 aria-haspopup="true"
               >
-                <User className="w-3.5 h-3.5" />
+                <User className="w-3.5 h-3.5 text-burgundy-800 dark:text-brass-400" />
                 <span>About</span>
-                <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${aboutDropdownOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${aboutDropdownOpen ? 'rotate-180 text-burgundy-800' : ''}`} />
                 {isCurrent('/about') && (
                   <span className="absolute bottom-0 left-1 right-1 h-[2px] bg-burgundy-800 dark:bg-brass-400" />
                 )}
               </button>
 
-              {/* Premium Mini Mega-Menu Dropdown Surface */}
+              {/* Floating Dropdown on Warm Ivory #FFFDF8 with Soft Shadow & Elevation */}
               {aboutDropdownOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[340px] rounded-xl bg-ivory-50 dark:bg-charcoal-900 border-2 border-brass-500/40 p-4 shadow-2xl animate-fade-in z-50 space-y-3">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[350px] rounded-xl bg-[#FFFDF8] dark:bg-charcoal-900 border-2 border-brass-500/50 p-4 shadow-2xl animate-fade-in z-50 space-y-3">
                   <div className="flex items-center justify-between border-b border-ivory-300 dark:border-stone-800 pb-2">
                     <span className="text-[10px] uppercase tracking-[0.2em] text-burgundy-800 dark:text-brass-400 font-bold font-mono">
                       ABOUT THE CHAMBERS
                     </span>
-                    <span className="text-[9px] font-mono text-stone-500 dark:text-stone-400">CHAMBER 62</span>
+                    <span className="text-[9px] font-mono text-stone-500 dark:text-stone-400 font-bold">CHAMBER 62</span>
                   </div>
 
-                  {/* Links Grid */}
+                  {/* Links Grid with Distinct Icons */}
                   <div className="space-y-1">
                     {aboutSubLinks.map((item) => {
                       const Icon = item.icon;
@@ -226,7 +226,7 @@ export const Navbar: React.FC = () => {
                   : 'text-stone-700 dark:text-stone-300 hover:text-burgundy-800 dark:hover:text-ivory-100'
               }`}
             >
-              <FolderOpen className="w-3.5 h-3.5" />
+              <FolderOpen className="w-3.5 h-3.5 text-burgundy-800 dark:text-brass-400" />
               <span>Matters</span>
               {isCurrent('/matters') && (
                 <span className="absolute bottom-0 left-1 right-1 h-[2px] bg-burgundy-800 dark:bg-brass-400" />
@@ -242,7 +242,7 @@ export const Navbar: React.FC = () => {
                   : 'text-stone-700 dark:text-stone-300 hover:text-burgundy-800 dark:hover:text-ivory-100'
               }`}
             >
-              <BookOpen className="w-3.5 h-3.5" />
+              <BookOpen className="w-3.5 h-3.5 text-burgundy-800 dark:text-brass-400" />
               <span>Insights</span>
               {isCurrent('/insights') && (
                 <span className="absolute bottom-0 left-1 right-1 h-[2px] bg-burgundy-800 dark:bg-brass-400" />
@@ -258,7 +258,7 @@ export const Navbar: React.FC = () => {
                   : 'text-stone-700 dark:text-stone-300 hover:text-burgundy-800 dark:hover:text-ivory-100'
               }`}
             >
-              <Phone className="w-3.5 h-3.5" />
+              <Phone className="w-3.5 h-3.5 text-burgundy-800 dark:text-brass-400" />
               <span>Contact</span>
               {isCurrent('/contact') && (
                 <span className="absolute bottom-0 left-1 right-1 h-[2px] bg-burgundy-800 dark:bg-brass-400" />
@@ -326,7 +326,7 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-ivory-50 dark:bg-charcoal-950 border-b-2 border-brass-500/40 px-5 pt-4 pb-6 space-y-4 shadow-2xl animate-fade-in text-charcoal-800 dark:text-ivory-100">
+        <div className="md:hidden bg-[#FFFDF8] dark:bg-charcoal-950 border-b-2 border-brass-500/40 px-5 pt-4 pb-6 space-y-4 shadow-2xl animate-fade-in text-charcoal-800 dark:text-ivory-100">
           <div className="flex flex-col space-y-1">
             
             {/* 01 Home */}
