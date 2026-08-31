@@ -2,7 +2,21 @@ import React from 'react';
 import { PRIMARY_ADVOCATE, ASSOCIATED_ADVOCATES } from '../../data/advocate';
 import { SectionHeader } from '../../components/common/SectionHeader';
 import { Button } from '../../components/common/Button';
-import { Phone, MessageSquare, ArrowUpRight, Scale, BookOpen, Compass, Building2 } from 'lucide-react';
+import {
+  User,
+  Users,
+  Building,
+  Landmark,
+  MapPin,
+  Phone,
+  MessageSquare,
+  ArrowUpRight,
+  Scale,
+  BookOpen,
+  Compass,
+  Building2,
+  ShieldCheck,
+} from 'lucide-react';
 import { getDirectWhatsAppUrl } from '../../utils/whatsapp';
 
 export const AboutPage: React.FC = () => {
@@ -15,7 +29,7 @@ export const AboutPage: React.FC = () => {
         {/* Page Header */}
         <div className="max-w-4xl space-y-3 sm:space-y-4">
           <div className="flex items-center gap-2 text-burgundy-800 dark:text-brass-400 text-xs font-bold uppercase tracking-[0.25em] font-mono">
-            <div className="w-5 h-[1.5px] bg-burgundy-800" />
+            <User className="w-4 h-4" />
             <span>CHAMBERS PROFILE & LEGACY</span>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-charcoal-800 dark:text-ivory-100 font-normal leading-tight tracking-tight">
@@ -26,8 +40,8 @@ export const AboutPage: React.FC = () => {
           </p>
         </div>
 
-        {/* Advocate Profile Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start border-y border-ivory-300 dark:border-stone-800 py-12 sm:py-16">
+        {/* Advocate Profile Section with Chamber Anchor */}
+        <div id="chamber" className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start border-y border-ivory-300 dark:border-stone-800 py-12 sm:py-16 scroll-mt-28">
           
           {/* Left: Monogram Frame with Burgundy Accent */}
           <div className="lg:col-span-5">
@@ -92,7 +106,7 @@ export const AboutPage: React.FC = () => {
               </p>
             </div>
 
-            {/* Chamber Core Values Grid */}
+            {/* Chamber Core Values Grid with Icons */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-2">
               <div className="p-4 rounded-xl bg-white dark:bg-charcoal-850 border border-ivory-300 dark:border-stone-800 space-y-1.5 shadow-sm">
                 <Scale className="w-4 h-4 text-burgundy-800 dark:text-brass-400" />
@@ -127,9 +141,40 @@ export const AboutPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Associated Advocates */}
-        <div className="space-y-8">
+        {/* High Court Section Anchor */}
+        <div id="high-court" className="scroll-mt-28 space-y-6">
           <SectionHeader
+            icon={<Landmark className="w-4 h-4" />}
+            eyebrow="HIGH COURT OF ALLAHABAD"
+            eyebrowColor="navy"
+            title="Institutional Seat & Jurisdictional Reach"
+            hindiTitle="इलाहाबाद उच्च न्यायालय — न्यायपीठ"
+            description="Established under the Letters Patent of 1866, the High Court of Judicature at Allahabad stands as one of India's most historic appellate institutions."
+          />
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+            <div className="p-4 rounded-xl bg-white dark:bg-charcoal-850 border border-ivory-300 dark:border-stone-800 space-y-1">
+              <Building className="w-4 h-4 text-burgundy-800 dark:text-brass-400" />
+              <span className="font-bold text-charcoal-800 dark:text-ivory-100 font-mono block">Chamber 62</span>
+              <p className="text-stone-600 dark:text-stone-400 font-light">New Building Complex, High Court Prayagraj.</p>
+            </div>
+            <div className="p-4 rounded-xl bg-white dark:bg-charcoal-850 border border-ivory-300 dark:border-stone-800 space-y-1">
+              <Landmark className="w-4 h-4 text-navy-800 dark:text-navy-300" />
+              <span className="font-bold text-charcoal-800 dark:text-ivory-100 font-mono block">Daily Sittings</span>
+              <p className="text-stone-600 dark:text-stone-400 font-light">10:00 AM – 04:00 PM (Monday through Friday).</p>
+            </div>
+            <div className="p-4 rounded-xl bg-white dark:bg-charcoal-850 border border-ivory-300 dark:border-stone-800 space-y-1">
+              <MapPin className="w-4 h-4 text-terracotta-700 dark:text-terracotta-400" />
+              <span className="font-bold text-charcoal-800 dark:text-ivory-100 font-mono block">Prayagraj UP</span>
+              <p className="text-stone-600 dark:text-stone-400 font-light">Pin code 211001, Uttar Pradesh.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Associated Advocates with Anchor */}
+        <div id="associates" className="space-y-8 scroll-mt-28">
+          <SectionHeader
+            icon={<Users className="w-4 h-4" />}
             eyebrow="CHAMBERS TEAM & ASSOCIATES"
             eyebrowColor="burgundy"
             title="Associated Advocates"

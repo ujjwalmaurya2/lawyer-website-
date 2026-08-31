@@ -4,7 +4,21 @@ import { PRACTICE_AREAS } from '../../data/practiceAreas';
 import { Button } from '../../components/common/Button';
 import { Badge } from '../../components/common/Badge';
 import { getDirectWhatsAppUrl } from '../../utils/whatsapp';
-import { ArrowLeft, ArrowUpRight, CheckCircle2, FileText, MessageSquare, ShieldCheck } from 'lucide-react';
+import {
+  ArrowLeft,
+  ArrowUpRight,
+  ShieldCheck,
+  FileText,
+  Landmark,
+  Briefcase,
+  Users,
+  Compass,
+  MessageSquare,
+  FileCheck,
+  Scale,
+  Calendar,
+  Building2,
+} from 'lucide-react';
 
 export const PracticeAreaDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -14,35 +28,63 @@ export const PracticeAreaDetailPage: React.FC = () => {
     return <Navigate to="/practice-areas" replace />;
   }
 
+  // Get semantic icon
+  const getHeaderIcon = (s: string) => {
+    switch (s) {
+      case 'criminal-law-bail':
+        return <ShieldCheck className="w-8 h-8 sm:w-10 sm:h-10 text-burgundy-800 dark:text-brass-400" />;
+      case 'civil-litigation-appeals':
+        return <FileText className="w-8 h-8 sm:w-10 sm:h-10 text-burgundy-800 dark:text-brass-400" />;
+      case 'constitutional-writ-petitions':
+        return <Landmark className="w-8 h-8 sm:w-10 sm:h-10 text-burgundy-800 dark:text-brass-400" />;
+      case 'service-administrative-matters':
+        return <Briefcase className="w-8 h-8 sm:w-10 sm:h-10 text-burgundy-800 dark:text-brass-400" />;
+      case 'family-matrimonial-matters':
+        return <Users className="w-8 h-8 sm:w-10 sm:h-10 text-burgundy-800 dark:text-brass-400" />;
+      case 'other-legal-matters-advisory':
+      default:
+        return <Compass className="w-8 h-8 sm:w-10 sm:h-10 text-burgundy-800 dark:text-brass-400" />;
+    }
+  };
+
   return (
     <div className="pt-24 sm:pt-28 pb-20 sm:pb-24 bg-ivory-100 dark:bg-[#0B0D0E] transition-colors">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-14">
         
         {/* Back Link */}
         <Link
           to="/practice-areas"
-          className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-stone-600 dark:text-stone-400 hover:text-brass-700 dark:hover:text-brass-300 transition-colors font-mono font-medium"
+          className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-stone-600 dark:text-stone-400 hover:text-burgundy-800 dark:hover:text-brass-300 transition-colors font-mono font-bold"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Practice Jurisdictions</span>
         </Link>
 
-        {/* Header Block */}
-        <div className="space-y-3 sm:space-y-4 border-b border-ivory-300 dark:border-stone-800/80 pb-8 sm:pb-10">
-          <div className="flex items-center gap-3">
-            <span className="font-mono text-sm sm:text-base text-brass-700 dark:text-brass-400 font-bold px-2 py-0.5 border border-brass-400/40 rounded bg-white dark:bg-charcoal-850">
-              JURISDICTION {area.number}
-            </span>
-            <Badge variant="stone">High Court of Judicature at Allahabad</Badge>
+        {/* Header Block with Large Icon */}
+        <div className="space-y-4 border-b border-ivory-300 dark:border-stone-800 pb-8 sm:pb-10">
+          <div className="flex items-center gap-4">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white dark:bg-charcoal-850 border-2 border-brass-500/50 flex items-center justify-center p-3 shadow-md">
+              {getHeaderIcon(area.slug)}
+            </div>
+
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="font-mono text-xs text-burgundy-800 dark:text-brass-400 font-bold px-2 py-0.5 border border-burgundy-300 dark:border-brass-400/40 rounded bg-white dark:bg-charcoal-850">
+                  JURISDICTION {area.number}
+                </span>
+                <Badge variant="navy">High Court Allahabad</Badge>
+              </div>
+
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif text-charcoal-800 dark:text-ivory-100 font-normal tracking-tight">
+                {area.title}
+              </h1>
+              <p className="text-sm sm:text-base font-serif text-stone-600 dark:text-stone-400 italic">
+                {area.hindiTitle}
+              </p>
+            </div>
           </div>
 
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif text-charcoal-900 dark:text-ivory-100 font-normal tracking-tight">
-            {area.title}
-          </h1>
-          <p className="text-base sm:text-lg font-serif text-stone-600 dark:text-stone-400 italic">
-            {area.hindiTitle}
-          </p>
-          <p className="text-xs sm:text-sm md:text-base text-stone-700 dark:text-stone-300 font-sans font-light leading-relaxed max-w-3xl pt-1">
+          <p className="text-xs sm:text-sm md:text-base text-stone-700 dark:text-stone-300 font-sans font-light leading-relaxed max-w-3xl pt-2">
             {area.shortDescription}
           </p>
         </div>
@@ -54,53 +96,59 @@ export const PracticeAreaDetailPage: React.FC = () => {
           <div className="lg:col-span-8 space-y-8 sm:space-y-10">
             {/* Overview */}
             <div className="space-y-3">
-              <h2 className="text-xs uppercase tracking-[0.25em] text-brass-700 dark:text-brass-400 font-semibold font-mono">
-                Detailed Scope of Advocacy
-              </h2>
+              <div className="flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-burgundy-800 dark:text-brass-400 font-bold font-mono">
+                <Scale className="w-4 h-4" />
+                <span>Scope of High Court Advocacy</span>
+              </div>
               <p className="text-xs sm:text-sm md:text-base text-stone-700 dark:text-stone-300 font-sans font-light leading-relaxed">
                 {area.detailedOverview}
               </p>
             </div>
 
-            {/* Common Matters */}
-            <div className="space-y-3 pt-3 border-t border-ivory-300 dark:border-stone-800">
-              <h2 className="text-xs uppercase tracking-[0.25em] text-brass-700 dark:text-brass-400 font-semibold font-mono">
-                Specific Matter Types Handled
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            {/* Common Matters: Visual Icon Cards */}
+            <div className="space-y-4 pt-4 border-t border-ivory-300 dark:border-stone-800">
+              <div className="flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-burgundy-800 dark:text-brass-400 font-bold font-mono">
+                <FileCheck className="w-4 h-4" />
+                <span>Specific Matter Types Handled</span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {area.commonMatters.map((item, idx) => (
-                  <div key={idx} className="p-3.5 rounded-lg bg-white dark:bg-charcoal-850 border border-ivory-300 dark:border-stone-800/80 flex items-start gap-2.5 shadow-sm">
-                    <CheckCircle2 className="w-4 h-4 text-brass-600 dark:text-brass-400 shrink-0 mt-0.5" />
-                    <span className="text-xs sm:text-sm text-stone-800 dark:text-stone-300 leading-snug">{item}</span>
+                  <div key={idx} className="p-4 rounded-xl bg-white dark:bg-charcoal-850 border border-ivory-300 dark:border-stone-800/80 flex items-start gap-3 shadow-sm hover:border-burgundy-800/40 transition-colors">
+                    <span className="w-6 h-6 rounded-md bg-ivory-150 dark:bg-charcoal-800 flex items-center justify-center font-mono text-xs font-bold text-burgundy-800 dark:text-brass-400 shrink-0">
+                      0{idx + 1}
+                    </span>
+                    <span className="text-xs sm:text-sm text-stone-800 dark:text-stone-200 leading-snug font-medium">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Consultation Approach */}
-            <div className="space-y-3 pt-3 border-t border-ivory-300 dark:border-stone-800">
-              <h2 className="text-xs uppercase tracking-[0.25em] text-brass-700 dark:text-brass-400 font-semibold font-mono">
-                Chamber Approach to Case Preparation
-              </h2>
-              <div className="space-y-2.5">
+            {/* Chamber Approach */}
+            <div className="space-y-4 pt-4 border-t border-ivory-300 dark:border-stone-800">
+              <div className="flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-burgundy-800 dark:text-brass-400 font-bold font-mono">
+                <Building2 className="w-4 h-4" />
+                <span>Chamber Approach to Case Preparation</span>
+              </div>
+              <div className="space-y-3">
                 {area.consultationApproach.map((step, idx) => (
-                  <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-stone-700 dark:text-stone-300">
-                    <span className="font-mono text-brass-700 dark:text-brass-400 text-xs font-bold mt-0.5">0{idx + 1}.</span>
+                  <div key={idx} className="p-3.5 rounded-xl bg-white dark:bg-charcoal-850 border border-ivory-300 dark:border-stone-800 flex items-start gap-3 text-xs sm:text-sm text-stone-700 dark:text-stone-300">
+                    <span className="font-mono text-burgundy-800 dark:text-brass-400 font-bold mt-0.5">0{idx + 1}.</span>
                     <span className="leading-relaxed font-light">{step}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Documents to Bring */}
-            <div className="space-y-3 pt-3 border-t border-ivory-300 dark:border-stone-800">
-              <h2 className="text-xs uppercase tracking-[0.25em] text-brass-700 dark:text-brass-400 font-semibold font-mono">
-                Key Documents Required for Consultation
-              </h2>
-              <div className="p-5 rounded-lg bg-white dark:bg-charcoal-850 border border-ivory-300 dark:border-stone-800 space-y-2.5 shadow-sm">
+            {/* Documents Required */}
+            <div className="space-y-4 pt-4 border-t border-ivory-300 dark:border-stone-800">
+              <div className="flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-burgundy-800 dark:text-brass-400 font-bold font-mono">
+                <FileText className="w-4 h-4" />
+                <span>Key Documents Required for Consultation</span>
+              </div>
+              <div className="p-5 rounded-xl bg-white dark:bg-charcoal-850 border border-ivory-300 dark:border-stone-800 space-y-2.5 shadow-sm">
                 {area.documentsToBring.map((doc, idx) => (
                   <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-stone-700 dark:text-stone-300">
-                    <FileText className="w-4 h-4 text-brass-600 dark:text-brass-400 shrink-0 mt-0.5" />
+                    <FileText className="w-4 h-4 text-burgundy-800 dark:text-brass-400 shrink-0 mt-0.5" />
                     <span>{doc}</span>
                   </div>
                 ))}
@@ -110,12 +158,12 @@ export const PracticeAreaDetailPage: React.FC = () => {
 
           {/* Sidebar CTA Card */}
           <div className="lg:col-span-4 lg:sticky lg:top-28 space-y-5">
-            <div className="p-6 rounded-lg bg-white dark:bg-charcoal-850 border border-ivory-300 dark:border-stone-800 space-y-5 shadow-card-light dark:shadow-none">
+            <div className="p-6 sm:p-7 rounded-2xl bg-white dark:bg-charcoal-850 border-2 border-brass-500/40 space-y-5 shadow-card-light dark:shadow-none">
               <div className="space-y-1.5">
-                <span className="text-[10px] uppercase tracking-[0.2em] text-brass-700 dark:text-brass-400 font-bold font-mono block">
+                <span className="text-[10px] uppercase tracking-[0.2em] text-burgundy-800 dark:text-brass-400 font-bold font-mono block">
                   CHAMBER CONSULTATION
                 </span>
-                <h3 className="font-serif text-lg sm:text-xl text-charcoal-900 dark:text-ivory-100 font-normal">
+                <h3 className="font-serif text-xl text-charcoal-800 dark:text-ivory-100 font-normal">
                   Discuss Your Matter
                 </h3>
                 <p className="text-xs text-stone-600 dark:text-stone-400 font-light leading-relaxed">
@@ -125,38 +173,38 @@ export const PracticeAreaDetailPage: React.FC = () => {
 
               <div className="space-y-2.5">
                 <Button
-                  variant="brass"
+                  variant="primary"
                   size="md"
                   as="a"
                   href={`/consultation?type=${encodeURIComponent(area.title)}`}
                   icon={<ArrowUpRight className="w-4 h-4" />}
                   iconPosition="right"
-                  className="w-full text-xs"
+                  className="w-full text-xs font-semibold"
                 >
                   Request Consultation Form
                 </Button>
 
                 <Button
-                  variant="whatsapp"
+                  variant="outline"
                   size="md"
                   as="a"
                   href={getDirectWhatsAppUrl(`नमस्कार अधिवक्ता महोदय, मुझे ${area.title} से संबंधित मामले में consultation की आवश्यकता है।`)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  icon={<MessageSquare className="w-4 h-4" />}
-                  className="w-full text-xs"
+                  icon={<MessageSquare className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />}
+                  className="w-full text-xs font-semibold"
                 >
                   WhatsApp Inquiries
                 </Button>
               </div>
 
-              <div className="pt-3.5 border-t border-ivory-200 dark:border-stone-800 text-[11px] text-stone-600 dark:text-stone-400 space-y-1">
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-3.5 h-3.5 text-brass-600 dark:text-brass-400" />
-                  <span className="font-medium">Confidential Assessment</span>
+              <div className="pt-3.5 border-t border-ivory-300 dark:border-stone-800 text-[11px] text-stone-600 dark:text-stone-400 space-y-1 font-mono">
+                <div className="flex items-center gap-2 text-burgundy-800 dark:text-brass-400 font-bold">
+                  <ShieldCheck className="w-3.5 h-3.5" />
+                  <span>Confidential Assessment</span>
                 </div>
                 <p className="text-[10px] text-stone-500 dark:text-stone-400">
-                  Chamber No. 62, New Building, High Court Allahabad.
+                  Chamber 62, New Building, High Court Allahabad.
                 </p>
               </div>
             </div>

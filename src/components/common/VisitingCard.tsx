@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { RotateCw, Download, MessageSquare, Phone, Mail, MapPin, Building, ShieldCheck } from 'lucide-react';
+import { RotateCw, Download, MessageSquare, Phone, Mail, MapPin, Building, ShieldCheck, Contact } from 'lucide-react';
 import { PRIMARY_ADVOCATE } from '../../data/advocate';
 import { downloadVCard } from '../../utils/vcard';
 import { getDirectWhatsAppUrl } from '../../utils/whatsapp';
@@ -29,6 +29,7 @@ export const VisitingCard: React.FC = () => {
         <button
           onClick={() => setIsFlipped(!isFlipped)}
           type="button"
+          aria-label="Flip visiting card"
           className="inline-flex items-center gap-1.5 text-xs text-burgundy-800 dark:text-brass-400 hover:text-burgundy-900 dark:hover:text-brass-300 transition-colors uppercase tracking-widest font-mono font-bold cursor-pointer"
         >
           <RotateCw className={`w-3.5 h-3.5 transition-transform duration-500 ${isFlipped ? 'rotate-180' : ''}`} />
@@ -167,6 +168,7 @@ export const VisitingCard: React.FC = () => {
           size="md"
           icon={<Download className="w-4 h-4" />}
           onClick={handleSaveContact}
+          aria-label="Save Contact vCard"
           className="w-full text-xs"
         >
           {savedSuccess ? 'Contact Saved (.vcf) ✓' : 'Save Contact (.vcf)'}
@@ -180,6 +182,7 @@ export const VisitingCard: React.FC = () => {
           target="_blank"
           rel="noopener noreferrer"
           icon={<MessageSquare className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />}
+          aria-label="Message on WhatsApp"
           className="w-full text-xs"
         >
           Message on WhatsApp

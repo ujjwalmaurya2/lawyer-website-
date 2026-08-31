@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
 import { PRIMARY_ADVOCATE, ASSOCIATED_ADVOCATES } from '../../data/advocate';
 import { SectionHeader } from '../common/SectionHeader';
-import { Phone, ArrowUpRight, ShieldCheck } from 'lucide-react';
+import {
+  User,
+  Users,
+  Building,
+  Landmark,
+  MapPin,
+  Phone,
+  ArrowUpRight,
+  ShieldCheck,
+  Scale,
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const AboutSection: React.FC = () => {
@@ -9,7 +19,7 @@ export const AboutSection: React.FC = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-20 sm:py-28 bg-ivory-100 dark:bg-[#0B0D0E] border-b border-ivory-300 dark:border-stone-800 relative transition-colors">
+    <section id="chamber" className="py-20 sm:py-28 bg-ivory-100 dark:bg-[#0B0D0E] border-b border-ivory-300 dark:border-stone-800 relative transition-colors scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Asymmetrical Layout */}
@@ -17,19 +27,20 @@ export const AboutSection: React.FC = () => {
           
           {/* Left Column: Large Editorial Statement & Identity */}
           <div className="lg:col-span-5 space-y-6 sm:space-y-8">
-            <div className="space-y-2">
-              <span className="text-[10px] uppercase tracking-[0.25em] text-burgundy-800 dark:text-brass-400 font-bold font-mono block">
-                THE PRACTICE
-              </span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-charcoal-800 dark:text-ivory-100 font-normal">
-                Chambers Profile & Philosophy
-              </h2>
-            </div>
+            <SectionHeader
+              icon={<User className="w-4 h-4" />}
+              eyebrow="THE PRACTICE & COUNSEL"
+              eyebrowColor="burgundy"
+              title="Chambers Profile & Philosophy"
+              hindiTitle="विधिक परंपरा एवं कार्यप्रणाली"
+              description="Law requires more than formal appearance. It demands deep record analysis and unwavering constitutional conviction."
+              className="mb-0"
+            />
 
             {/* Large Statement with 1 Thin Burgundy Vertical Line */}
             <div className="border-l-2 border-burgundy-800 dark:border-burgundy-400 pl-5 sm:pl-6 py-2 space-y-2">
               <span className="text-[10px] uppercase tracking-[0.2em] text-stone-500 dark:text-stone-400 font-mono">
-                Institutional Creed
+                Professional Motto
               </span>
               <blockquote className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal-800 dark:text-ivory-100 font-normal leading-tight">
                 “{adv.motto}”
@@ -39,17 +50,23 @@ export const AboutSection: React.FC = () => {
               </p>
             </div>
 
-            {/* Advocate Biography Block (No Generic Card) */}
-            <div className="space-y-3 pt-2">
-              <h3 className="text-xl sm:text-2xl font-serif text-charcoal-800 dark:text-ivory-100 font-normal">
-                {adv.name} ({adv.alias})
-              </h3>
-              <p className="text-xs sm:text-sm font-serif text-stone-600 dark:text-stone-400 italic">
-                {adv.hindiName} · {adv.title}, {adv.court}
-              </p>
-              <p className="text-xs sm:text-sm text-stone-700 dark:text-stone-300 font-sans font-light leading-relaxed pt-1">
-                Leading an institutional legal practice before the High Court of Judicature at Allahabad, grounded in disciplined case preparation, meticulous trial record analysis, and principled constitutional advocacy.
-              </p>
+            {/* Icon-Led Key Credentials Ribbon */}
+            <div className="grid grid-cols-2 gap-3 pt-2">
+              <div className="p-3.5 rounded-xl bg-white dark:bg-charcoal-850 border border-ivory-300 dark:border-stone-800 flex items-start gap-2.5 shadow-sm">
+                <Landmark className="w-4 h-4 text-burgundy-800 dark:text-brass-400 shrink-0 mt-0.5" />
+                <div className="space-y-0.5">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-stone-500 dark:text-stone-400 block font-bold">Court Seat</span>
+                  <span className="text-xs font-serif text-charcoal-800 dark:text-ivory-100 font-medium">Allahabad High Court</span>
+                </div>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-white dark:bg-charcoal-850 border border-ivory-300 dark:border-stone-800 flex items-start gap-2.5 shadow-sm">
+                <Building className="w-4 h-4 text-burgundy-800 dark:text-brass-400 shrink-0 mt-0.5" />
+                <div className="space-y-0.5">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-stone-500 dark:text-stone-400 block font-bold">Chamber</span>
+                  <span className="text-xs font-serif text-charcoal-800 dark:text-ivory-100 font-medium">Chamber No. 62</span>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -59,24 +76,30 @@ export const AboutSection: React.FC = () => {
             {/* Primary Narrative */}
             <div className="space-y-4 text-stone-700 dark:text-stone-300 font-sans font-light text-sm sm:text-base leading-relaxed">
               <p>
-                The chambers of <strong className="text-charcoal-800 dark:text-ivory-100 font-semibold">{adv.name}</strong> operate under a fundamental commitment to the administration of justice. Every brief accepted is evaluated through binding Allahabad High Court and Supreme Court precedents before formulation of strategy.
+                The chambers of <strong className="text-charcoal-800 dark:text-ivory-100 font-semibold">{adv.name} ({adv.alias})</strong> reflect a disciplined institutional approach to High Court advocacy in Allahabad. Grounded in thorough research and structured pleadings, every matter is scrutinized against trial records and binding judicial precedents.
               </p>
               <p>
-                Whether challenging executive arbitrariness via Article 226 writ petitions or defending liberty in complex criminal and bail applications, the chamber provides thorough, transparent counsel without unrealistic promises.
+                Whether challenging administrative decisions through writ petitions or formulating substantial questions of law in appellate litigation, the chamber delivers clear, transparent representation.
               </p>
             </div>
 
-            {/* ASSOCIATED ADVOCATES: Typographic Roster (No standard cards) */}
-            <div className="pt-8 border-t border-ivory-300 dark:border-stone-800 space-y-6">
+            {/* ASSOCIATED ADVOCATES: Typographic Roster with Section Anchor */}
+            <div id="associates" className="pt-8 border-t border-ivory-300 dark:border-stone-800 space-y-6 scroll-mt-24">
               <div className="flex items-center justify-between">
-                <div>
-                  <span className="text-[10px] uppercase tracking-[0.25em] text-burgundy-800 dark:text-brass-400 font-bold font-mono block">
-                    CHAMBERS ROSTER
-                  </span>
-                  <h3 className="text-xl sm:text-2xl font-serif text-charcoal-800 dark:text-ivory-100 font-normal mt-0.5">
-                    Associated Advocates
-                  </h3>
+                <div className="flex items-center gap-2.5">
+                  <div className="w-6 h-6 rounded-md bg-terracotta-100 dark:bg-terracotta-950/70 border border-terracotta-300 dark:border-terracotta-800/60 flex items-center justify-center p-1 text-terracotta-700 dark:text-terracotta-300">
+                    <Users className="w-3.5 h-3.5" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] uppercase tracking-[0.25em] text-terracotta-700 dark:text-terracotta-400 font-bold font-mono block">
+                      CHAMBERS TEAM
+                    </span>
+                    <h3 className="text-xl sm:text-2xl font-serif text-charcoal-800 dark:text-ivory-100 font-normal mt-0.5">
+                      Associated Advocates
+                    </h3>
+                  </div>
                 </div>
+
                 <Link
                   to="/about"
                   className="text-xs uppercase tracking-wider text-burgundy-800 dark:text-brass-400 hover:underline font-bold transition-colors inline-flex items-center gap-1 font-mono"

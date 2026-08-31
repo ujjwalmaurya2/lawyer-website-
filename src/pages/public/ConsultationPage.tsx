@@ -6,8 +6,13 @@ import { buildWhatsAppMessage, getWhatsAppUrl } from '../../utils/whatsapp';
 import { Button } from '../../components/common/Button';
 import { Badge } from '../../components/common/Badge';
 import {
-  MessageSquare,
+  User,
   Phone,
+  Mail,
+  Briefcase,
+  FileText,
+  Clock,
+  MessageSquare,
   CheckCircle2,
   ArrowRight,
   ArrowLeft,
@@ -35,6 +40,15 @@ export const ConsultationPage: React.FC = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [copiedMessage, setCopiedMessage] = useState(false);
+
+  const stepsMeta = [
+    { num: 1, label: 'Full Name', icon: User },
+    { num: 2, label: 'Mobile / WhatsApp', icon: Phone },
+    { num: 3, label: 'Email', icon: Mail },
+    { num: 4, label: 'Legal Matter', icon: Briefcase },
+    { num: 5, label: 'Brief Description', icon: FileText },
+    { num: 6, label: 'Preferred Time', icon: Clock },
+  ];
 
   const matterTypes = [
     'Constitutional & Writ Matters',
@@ -136,7 +150,7 @@ export const ConsultationPage: React.FC = () => {
         {/* Page Header */}
         <div className="max-w-3xl space-y-3 sm:space-y-4">
           <div className="flex items-center gap-2 text-brass-400 text-xs font-bold uppercase tracking-[0.25em] font-mono">
-            <div className="w-5 h-[1.5px] bg-brass-400" />
+            <MessageSquare className="w-4 h-4" />
             <span>CONFIDENTIAL CASE INTAKE</span>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-ivory-50 font-normal leading-tight tracking-tight">
@@ -151,14 +165,42 @@ export const ConsultationPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           
           {/* LEFT: Multi-Step Form Surface in Warm Ivory / White */}
-          <div className="lg:col-span-7 bg-ivory-50 dark:bg-charcoal-900 text-charcoal-800 dark:text-ivory-100 rounded-xl border border-brass-500/30 p-5 sm:p-8 md:p-10 shadow-2xl relative transition-colors">
+          <div className="lg:col-span-7 bg-ivory-50 dark:bg-charcoal-900 text-charcoal-800 dark:text-ivory-100 rounded-2xl border border-brass-500/30 p-5 sm:p-8 md:p-10 shadow-2xl relative transition-colors">
             
-            {/* Step Progress Indicators */}
+            {/* Visual Icon Step Markers */}
             {!isSubmitted && (
-              <div className="mb-6 sm:mb-8">
+              <div className="mb-8">
+                {/* Horizontal Step Icons */}
+                <div className="grid grid-cols-6 gap-2 mb-3">
+                  {stepsMeta.map((s) => {
+                    const StepIcon = s.icon;
+                    const isPassed = currentStep > s.num;
+                    const isCurrent = currentStep === s.num;
+
+                    return (
+                      <div key={s.num} className="flex flex-col items-center text-center">
+                        <div
+                          className={`w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center border transition-all ${
+                            isCurrent
+                              ? 'bg-burgundy-800 text-ivory-50 border-burgundy-900 shadow-md ring-2 ring-brass-400/40'
+                              : isPassed
+                              ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 border-emerald-300'
+                              : 'bg-white dark:bg-charcoal-800 text-stone-400 dark:text-stone-600 border-ivory-300 dark:border-stone-700'
+                          }`}
+                        >
+                          <StepIcon className="w-4 h-4" />
+                        </div>
+                        <span className="hidden sm:block text-[9px] font-mono mt-1 text-stone-500 truncate max-w-full">
+                          0{s.num}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+
                 <div className="flex items-center justify-between text-xs text-stone-600 dark:text-stone-400 mb-2">
                   <span className="uppercase tracking-wider font-mono text-burgundy-800 dark:text-brass-400 font-bold">
-                    Step 0{currentStep} of 06
+                    Step 0{currentStep} of 06 · {stepsMeta[currentStep - 1]?.label}
                   </span>
                   <div className="flex items-center gap-2">
                     <button
@@ -188,8 +230,9 @@ export const ConsultationPage: React.FC = () => {
                 {currentStep === 1 && (
                   <div className="space-y-3 sm:space-y-4 animate-fade-in">
                     <div className="space-y-0.5">
-                      <label className="block text-xs sm:text-sm uppercase tracking-wider text-burgundy-800 dark:text-brass-400 font-bold font-mono">
-                        01. What is your Full Name? *
+                      <label className="flex items-center gap-2 text-xs sm:text-sm uppercase tracking-wider text-burgundy-800 dark:text-brass-400 font-bold font-mono">
+                        <User className="w-4 h-4" />
+                        <span>01. What is your Full Name? *</span>
                       </label>
                       <p className="text-xs text-stone-500 dark:text-stone-400 font-light">
                         आपका पूरा नाम (परामर्श हेतु)
@@ -214,8 +257,9 @@ export const ConsultationPage: React.FC = () => {
                 {currentStep === 2 && (
                   <div className="space-y-3 sm:space-y-4 animate-fade-in">
                     <div className="space-y-0.5">
-                      <label className="block text-xs sm:text-sm uppercase tracking-wider text-burgundy-800 dark:text-brass-400 font-bold font-mono">
-                        02. What is your Mobile / WhatsApp Number? *
+                      <label className="flex items-center gap-2 text-xs sm:text-sm uppercase tracking-wider text-burgundy-800 dark:text-brass-400 font-bold font-mono">
+                        <Phone className="w-4 h-4" />
+                        <span>02. What is your Mobile / WhatsApp Number? *</span>
                       </label>
                       <p className="text-xs text-stone-500 dark:text-stone-400 font-light">
                         मोबाइल नंबर (जिस पर आपसे संपर्क किया जा सके)
@@ -240,8 +284,9 @@ export const ConsultationPage: React.FC = () => {
                 {currentStep === 3 && (
                   <div className="space-y-3 sm:space-y-4 animate-fade-in">
                     <div className="space-y-0.5">
-                      <label className="block text-xs sm:text-sm uppercase tracking-wider text-burgundy-800 dark:text-brass-400 font-bold font-mono">
-                        03. Email Address (Optional)
+                      <label className="flex items-center gap-2 text-xs sm:text-sm uppercase tracking-wider text-burgundy-800 dark:text-brass-400 font-bold font-mono">
+                        <Mail className="w-4 h-4" />
+                        <span>03. Email Address (Optional)</span>
                       </label>
                       <p className="text-xs text-stone-500 dark:text-stone-400 font-light">
                         ईमेल पता (दस्तावेज़ प्रेषण हेतु)
@@ -266,8 +311,9 @@ export const ConsultationPage: React.FC = () => {
                 {currentStep === 4 && (
                   <div className="space-y-3 sm:space-y-4 animate-fade-in">
                     <div className="space-y-0.5">
-                      <label className="block text-xs sm:text-sm uppercase tracking-wider text-burgundy-800 dark:text-brass-400 font-bold font-mono">
-                        04. Select Legal Matter / Case Type *
+                      <label className="flex items-center gap-2 text-xs sm:text-sm uppercase tracking-wider text-burgundy-800 dark:text-brass-400 font-bold font-mono">
+                        <Briefcase className="w-4 h-4" />
+                        <span>04. Select Legal Matter / Case Type *</span>
                       </label>
                       <p className="text-xs text-stone-500 dark:text-stone-400 font-light">
                         कानूनी मामले की श्रेणी का चयन करें
@@ -302,8 +348,9 @@ export const ConsultationPage: React.FC = () => {
                 {currentStep === 5 && (
                   <div className="space-y-3 sm:space-y-4 animate-fade-in">
                     <div className="space-y-0.5">
-                      <label className="block text-xs sm:text-sm uppercase tracking-wider text-burgundy-800 dark:text-brass-400 font-bold font-mono">
-                        05. Brief Description of Your Legal Matter *
+                      <label className="flex items-center gap-2 text-xs sm:text-sm uppercase tracking-wider text-burgundy-800 dark:text-brass-400 font-bold font-mono">
+                        <FileText className="w-4 h-4" />
+                        <span>05. Brief Description of Your Legal Matter *</span>
                       </label>
                       <p className="text-xs text-stone-500 dark:text-stone-400 font-light">
                         मामले का संक्षिप्त विवरण (जैसे: FIR रद्दीकरण, जमानत, सेवा विवाद, अपील आदि)
@@ -327,8 +374,9 @@ export const ConsultationPage: React.FC = () => {
                 {currentStep === 6 && (
                   <div className="space-y-3 sm:space-y-4 animate-fade-in">
                     <div className="space-y-0.5">
-                      <label className="block text-xs sm:text-sm uppercase tracking-wider text-burgundy-800 dark:text-brass-400 font-bold font-mono">
-                        06. Preferred Consultation Time Window
+                      <label className="flex items-center gap-2 text-xs sm:text-sm uppercase tracking-wider text-burgundy-800 dark:text-brass-400 font-bold font-mono">
+                        <Clock className="w-4 h-4" />
+                        <span>06. Preferred Consultation Time Window</span>
                       </label>
                       <p className="text-xs text-stone-500 dark:text-stone-400 font-light">
                         परामर्श के लिए पसंदीदा समय
@@ -446,7 +494,7 @@ export const ConsultationPage: React.FC = () => {
 
           {/* RIGHT: Live Generated WhatsApp Payload Preview */}
           <div className="lg:col-span-5 space-y-5">
-            <div className="p-5 sm:p-7 rounded-xl bg-navy-900 border border-navy-700 space-y-3.5 shadow-2xl transition-colors">
+            <div className="p-5 sm:p-7 rounded-2xl bg-navy-900 border border-navy-700 space-y-3.5 shadow-2xl transition-colors">
               <div className="flex items-center justify-between border-b border-navy-800 pb-2.5">
                 <div className="flex items-center gap-2 text-emerald-400 text-xs font-bold uppercase tracking-wider font-mono">
                   <MessageSquare className="w-4 h-4" />
@@ -473,7 +521,7 @@ export const ConsultationPage: React.FC = () => {
             </div>
 
             {/* Quick Call Fallback Card */}
-            <div className="p-5 rounded-xl bg-navy-900 border border-navy-700 space-y-2.5 text-xs text-ivory-200 shadow-xl transition-colors">
+            <div className="p-5 rounded-2xl bg-navy-900 border border-navy-700 space-y-2.5 text-xs text-ivory-200 shadow-xl transition-colors">
               <div className="flex items-center gap-2 text-brass-400 font-bold uppercase tracking-wider font-mono">
                 <Phone className="w-3.5 h-3.5" />
                 <span>Urgent High Court Listings?</span>

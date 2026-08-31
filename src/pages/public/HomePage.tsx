@@ -2,6 +2,7 @@ import React from 'react';
 import { Hero } from '../../components/home/Hero';
 import { PositioningStrip } from '../../components/home/PositioningStrip';
 import { EditorialIntro } from '../../components/home/EditorialIntro';
+import { StatsStrip } from '../../components/home/StatsStrip';
 import { PracticeRows } from '../../components/home/PracticeRows';
 import { HighCourtSection } from '../../components/home/HighCourtSection';
 import { AboutSection } from '../../components/home/AboutSection';
@@ -24,28 +25,31 @@ export const HomePage: React.FC = () => {
       {/* 03 EDITORIAL INTRO: Typography-Led Statement */}
       <EditorialIntro />
 
-      {/* 04 PRACTICE AREAS: Large Numbered Interactive Rows */}
+      {/* 04 STATS STRIP: Icon-First Practice Velocity & DEMO Metrics */}
+      <StatsStrip />
+
+      {/* 05 PRACTICE AREAS: Large Numbered Interactive Icon Directory (01–06) */}
       <PracticeRows />
 
-      {/* 05 FULL-BLEED HIGH COURT: Major Visual Interruption (65-75vh) */}
+      {/* 06 FULL-BLEED HIGH COURT: Major Visual Interruption (65-75vh) */}
       <HighCourtSection />
 
-      {/* 06 ABOUT / ADVOCATE: Asymmetric Statement + Typographic Roster */}
+      {/* 07 ABOUT / ADVOCATE: Asymmetric Statement + Typographic Roster */}
       <AboutSection />
 
-      {/* 07 SELECTED MATTERS: Procedural Legal Journey Timeline */}
+      {/* 08 SELECTED MATTERS: Procedural Legal Journey Timeline with Icons */}
       <SelectedMattersSection />
 
-      {/* 08 CONSULTATION: Deep Navy Conversion with Overlapping Ivory Surface */}
+      {/* 09 CONSULTATION: Deep Navy Conversion with Overlapping Ivory Surface */}
       <ConsultationTeaser />
 
-      {/* 09 INSIGHTS: Editorial Magazine Composition */}
+      {/* 10 INSIGHTS: Editorial Magazine Composition with Category Icons */}
       <InsightsPreview />
 
-      {/* 10 CONTACT: Split Deep Burgundy & Warm Ivory */}
+      {/* 11 CONTACT: Split Deep Burgundy & Warm Ivory */}
       <HomeContactSection />
 
-      {/* 11 VISITING CARD & FAQS */}
+      {/* 12 VISITING CARD & FAQS */}
       <VisitingCardSection />
       <FAQAccordion />
     </div>
