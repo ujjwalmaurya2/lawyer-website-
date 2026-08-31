@@ -14,7 +14,7 @@ export const InsightDetailPage: React.FC = () => {
   }
 
   return (
-    <div className="pt-24 sm:pt-28 pb-20 sm:pb-24 bg-ivory-100 dark:bg-[#0B0D0E] transition-colors">
+    <div className="pt-10 sm:pt-14 pb-16 sm:pb-20 bg-ivory-100 dark:bg-[#0B0D0E] transition-colors">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
         
         {/* Back Link */}

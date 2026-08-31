@@ -8,7 +8,7 @@ export const Hero: React.FC = () => {
   const adv = PRIMARY_ADVOCATE;
 
   return (
-    <section className="relative min-h-[calc(100vh-4.25rem)] flex items-center pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 lg:pb-18 overflow-hidden bg-ivory-100 dark:bg-[#0B0D0E] transition-colors">
+    <section className="relative min-h-[calc(100vh-4.75rem)] flex items-center pt-10 sm:pt-14 lg:pt-16 pb-12 sm:pb-16 lg:pb-18 overflow-hidden bg-ivory-100 dark:bg-[#0B0D0E] transition-colors">
       
       {/* Background Lighting Gradients — Layer 1 (Depth) */}
       <div className="absolute top-1/4 -left-20 w-80 h-80 bg-burgundy-100/40 dark:bg-burgundy-950/20 rounded-full blur-3xl pointer-events-none -z-0" />

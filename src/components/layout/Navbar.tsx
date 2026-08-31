@@ -32,7 +32,7 @@ export const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 15) {
+      if (window.scrollY > 10) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -86,7 +86,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 bg-[#641F2B] dark:bg-[#0B0D0E] border-b border-[#B9965B] ${
+      className={`sticky top-0 z-50 transition-all duration-200 bg-[#641F2B] dark:bg-[#0B0D0E] border-b border-[#B9965B] ${
         isScrolled
           ? 'py-2 sm:py-2.5 shadow-xl'
           : 'py-2.5 sm:py-3 shadow-md'

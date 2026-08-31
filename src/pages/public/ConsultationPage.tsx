@@ -139,7 +139,7 @@ export const ConsultationPage: React.FC = () => {
   };
 
   return (
-    <div className="pt-24 sm:pt-28 pb-20 sm:pb-24 bg-navy-950 text-ivory-50 min-h-screen relative overflow-hidden transition-colors">
+    <div className="pt-10 sm:pt-14 pb-16 sm:pb-20 bg-navy-950 text-ivory-50 min-h-screen relative overflow-hidden transition-colors">
       
       {/* Background Accent Gradients */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-burgundy-900/30 blur-3xl pointer-events-none" />
