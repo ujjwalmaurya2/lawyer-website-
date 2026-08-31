@@ -12,18 +12,18 @@ export const ContactPage: React.FC = () => {
 
   return (
     <div className="pt-24 sm:pt-28 pb-20 sm:pb-24 bg-ivory-100 dark:bg-[#0B0D0E] transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
         
         {/* Page Header */}
-        <div className="max-w-4xl space-y-3 sm:space-y-4">
-          <div className="flex items-center gap-2 text-burgundy-800 dark:text-brass-400 text-xs font-bold uppercase tracking-[0.25em] font-mono">
-            <div className="w-5 h-[1.5px] bg-burgundy-800" />
+        <div className="max-w-3xl space-y-2.5">
+          <div className="flex items-center gap-2 text-burgundy-800 dark:text-brass-400 text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] font-mono">
+            <div className="w-4 h-[1.5px] bg-burgundy-800" />
             <span>CHAMBER COORDINATES</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-charcoal-800 dark:text-ivory-100 font-normal leading-tight tracking-tight">
+          <h1 className="text-2xl sm:text-3.5xl lg:text-[2.75rem] font-serif text-charcoal-800 dark:text-ivory-100 font-normal leading-tight tracking-tight">
             Connect with the Chambers of Advocate Ashutosh Pandey.
           </h1>
-          <p className="text-sm sm:text-base md:text-lg font-serif text-stone-600 dark:text-stone-400 italic">
+          <p className="text-xs sm:text-sm lg:text-base font-serif text-stone-600 dark:text-stone-400 italic">
             इलाहाबाद उच्च न्यायालय — चैंबर संपर्क एवं विधिक परामर्श
           </p>
         </div>

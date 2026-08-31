@@ -47,21 +47,21 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
 
   return (
     <div className={cn(
-      'mb-10 md:mb-14',
-      align === 'center' ? 'text-center mx-auto max-w-3xl' : 'max-w-3xl',
+      'mb-8 sm:mb-10 lg:mb-12',
+      align === 'center' ? 'text-center mx-auto max-w-2xl' : 'max-w-2xl',
       className
     )}>
       {/* Eyebrow with Optional Icon */}
       {eyebrow && (
-        <div className={cn('flex items-center gap-2.5 mb-2.5', align === 'center' ? 'justify-center' : '')}>
+        <div className={cn('flex items-center gap-2 mb-2', align === 'center' ? 'justify-center' : '')}>
           {icon ? (
-            <div className={cn('w-6 h-6 rounded-md border flex items-center justify-center p-1 shrink-0', iconBgColors[eyebrowColor])}>
+            <div className={cn('w-5 h-5 rounded-md border flex items-center justify-center p-0.5 shrink-0', iconBgColors[eyebrowColor])}>
               {icon}
             </div>
           ) : (
-            <div className={cn('w-5 h-[1.5px]', lineColors[eyebrowColor])} />
+            <div className={cn('w-4 h-[1.5px]', lineColors[eyebrowColor])} />
           )}
-          <span className={cn('text-[10px] sm:text-[11px] uppercase tracking-[0.25em] font-semibold font-mono', eyebrowColors[eyebrowColor])}>
+          <span className={cn('text-[10px] sm:text-[11px] uppercase tracking-[0.22em] font-semibold font-mono', eyebrowColors[eyebrowColor])}>
             {eyebrow}
           </span>
         </div>
@@ -69,14 +69,14 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
       
       <div className="space-y-1">
         <h2 className={cn(
-          'text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-normal tracking-tight text-balance leading-[1.15]',
+          'text-2xl sm:text-3xl lg:text-[2.25rem] font-serif font-normal tracking-tight text-balance leading-[1.18]',
           darkSurface ? 'text-ivory-50' : 'text-charcoal-800 dark:text-ivory-100'
         )}>
           {title}
         </h2>
         {hindiTitle && (
           <p className={cn(
-            'text-sm sm:text-base font-serif italic',
+            'text-xs sm:text-sm lg:text-base font-serif italic',
             darkSurface ? 'text-ivory-300/80' : 'text-stone-600 dark:text-stone-400'
           )}>
             {hindiTitle}
@@ -86,7 +86,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
 
       {description && (
         <p className={cn(
-          'mt-3.5 text-xs sm:text-sm md:text-base font-sans font-light leading-relaxed max-w-2xl text-balance',
+          'mt-2.5 text-xs sm:text-sm font-sans font-light leading-relaxed max-w-xl text-balance',
           darkSurface ? 'text-ivory-200/90' : 'text-stone-600 dark:text-stone-400'
         )}>
           {description}

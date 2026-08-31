@@ -148,24 +148,24 @@ export const ConsultationPage: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12 relative z-10">
         
         {/* Page Header */}
-        <div className="max-w-3xl space-y-3 sm:space-y-4">
-          <div className="flex items-center gap-2 text-brass-400 text-xs font-bold uppercase tracking-[0.25em] font-mono">
-            <MessageSquare className="w-4 h-4" />
+        <div className="max-w-3xl space-y-2.5">
+          <div className="flex items-center gap-2 text-brass-400 text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] font-mono">
+            <MessageSquare className="w-3.5 h-3.5" />
             <span>CONFIDENTIAL CASE INTAKE</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-ivory-50 font-normal leading-tight tracking-tight">
+          <h1 className="text-2xl sm:text-3.5xl lg:text-[2.75rem] font-serif text-ivory-50 font-normal leading-tight tracking-tight">
             Let’s discuss your matter.
           </h1>
-          <p className="text-sm sm:text-base md:text-lg font-serif text-brass-300/90 italic">
+          <p className="text-xs sm:text-sm lg:text-base font-serif text-brass-300/90 italic">
             Share the essentials of your matter and continue the conversation directly on WhatsApp.
           </p>
         </div>
 
         {/* Main Grid: Multi-Step Form on Left, Live WhatsApp Message Preview on Right */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
           
           {/* LEFT: Multi-Step Form Surface in Warm Ivory / White */}
-          <div className="lg:col-span-7 bg-ivory-50 dark:bg-charcoal-900 text-charcoal-800 dark:text-ivory-100 rounded-2xl border border-brass-500/30 p-5 sm:p-8 md:p-10 shadow-2xl relative transition-colors">
+          <div className="lg:col-span-7 bg-ivory-50 dark:bg-charcoal-900 text-charcoal-800 dark:text-ivory-100 rounded-2xl border border-brass-500/30 p-5 sm:p-7 md:p-8 shadow-2xl relative transition-colors">
             
             {/* Visual Icon Step Markers */}
             {!isSubmitted && (
