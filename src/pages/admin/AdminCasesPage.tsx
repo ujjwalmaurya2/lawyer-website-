@@ -204,8 +204,91 @@ export const AdminCasesPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Cases Table */}
-      <div className="rounded-lg bg-white dark:bg-charcoal-850 border border-ivory-300 dark:border-stone-800 overflow-hidden shadow-card-light dark:shadow-none">
+      {/* Cases Mobile Cards View */}
+      <div className="md:hidden space-y-3">
+        {filteredMatters.map((matter) => (
+          <div
+            key={matter.id}
+            className="p-4 rounded-xl bg-white dark:bg-charcoal-850 border border-ivory-300 dark:border-stone-800 space-y-3 shadow-sm"
+          >
+            <div className="flex items-start justify-between gap-2">
+              <div className="space-y-0.5">
+                <Link
+                  to={`/admin/cases/${matter.id}`}
+                  className="font-serif text-base font-medium text-charcoal-900 dark:text-ivory-100 hover:text-burgundy-800 dark:hover:text-brass-300 block"
+                >
+                  {matter.title}
+                </Link>
+                <span className="text-[10px] text-brass-700 dark:text-brass-400 font-mono font-bold">
+                  {matter.matterNumber}
+                </span>
+              </div>
+
+              <div className="flex flex-col items-end gap-1 shrink-0">
+                <Badge
+                  variant={
+                    matter.status === 'Active'
+                      ? 'brass'
+                      : matter.status === 'Hearing Scheduled'
+                      ? 'burgundy'
+                      : 'stone'
+                  }
+                  size="sm"
+                >
+                  {matter.status}
+                </Badge>
+                
+                <span
+                  className={`text-[9px] uppercase font-mono px-1.5 py-0.2 rounded font-semibold ${
+                    matter.priority === 'Urgent'
+                      ? 'bg-rose-100 dark:bg-rose-950 text-rose-800 dark:text-rose-300'
+                      : matter.priority === 'High'
+                      ? 'bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300'
+                      : 'bg-ivory-200 dark:bg-stone-900 text-stone-700 dark:text-stone-400'
+                  }`}
+                >
+                  {matter.priority}
+                </span>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2 text-xs pt-2 border-t border-ivory-200 dark:border-stone-800/80">
+              <div>
+                <span className="text-[10px] text-stone-500 dark:text-stone-400 uppercase font-mono block">Client:</span>
+                <span className="text-stone-800 dark:text-stone-200 font-medium truncate block">{matter.clientName}</span>
+              </div>
+              <div>
+                <span className="text-[10px] text-stone-500 dark:text-stone-400 uppercase font-mono block">Next Hearing:</span>
+                <span className="font-mono text-burgundy-800 dark:text-brass-300 font-bold block">{matter.nextHearingDate || 'Not Scheduled'}</span>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between pt-2 border-t border-ivory-200 dark:border-stone-800/80">
+              <button
+                onClick={() => togglePublish(matter.id)}
+                className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-[10px] font-mono font-semibold ${
+                  matter.isPublic
+                    ? 'bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-800/40'
+                    : 'bg-ivory-200 dark:bg-stone-900 text-stone-700 dark:text-stone-400 border border-ivory-300 dark:border-stone-700'
+                }`}
+              >
+                {matter.isPublic ? <Eye className="w-3 h-3 text-emerald-600" /> : <EyeOff className="w-3 h-3" />}
+                <span>{matter.isPublic ? 'Public' : 'Private'}</span>
+              </button>
+
+              <Link
+                to={`/admin/cases/${matter.id}`}
+                className="text-burgundy-800 dark:text-brass-400 hover:underline text-xs font-mono font-bold inline-flex items-center gap-1"
+              >
+                <span>View Matter →</span>
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Cases Desktop Table */}
+      <div className="hidden md:block rounded-lg bg-white dark:bg-charcoal-850 border border-ivory-300 dark:border-stone-800 overflow-hidden shadow-card-light dark:shadow-none">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs text-stone-700 dark:text-stone-300">
             <thead>

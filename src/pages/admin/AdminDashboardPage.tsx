@@ -119,7 +119,7 @@ export const AdminDashboardPage: React.FC = () => {
       </div>
 
       {/* Metric Cards with Distinct Visual Identities */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
         
         {/* Active Matters — Burgundy Accent */}
         <Link

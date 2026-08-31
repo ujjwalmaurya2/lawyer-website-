@@ -5,6 +5,7 @@ import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { MobileActionBar } from './components/layout/MobileActionBar';
 import { AdminSidebar } from './components/layout/AdminSidebar';
+import { AdminMobileActionBar } from './components/layout/AdminMobileActionBar';
 import { BrandReveal } from './components/common/BrandReveal';
 
 // Public Pages
@@ -57,9 +58,10 @@ const AdminLayout: React.FC = () => {
   return (
     <div className="min-h-screen bg-ivory-100 text-charcoal-900 dark:bg-[#08090A] dark:text-stone-300 flex flex-col lg:flex-row font-sans transition-colors duration-200 selection:bg-brass-500/20 selection:text-brass-800 dark:selection:text-brass-300">
       <AdminSidebar />
-      <main className="flex-1 overflow-y-auto min-h-screen">
+      <main className="flex-1 overflow-y-auto min-h-screen pb-20 lg:pb-0">
         <Outlet />
       </main>
+      <AdminMobileActionBar />
     </div>
   );
 };

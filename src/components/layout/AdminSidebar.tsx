@@ -144,24 +144,40 @@ export const AdminSidebar: React.FC = () => {
   return (
     <>
       {/* Mobile Header Bar for Admin */}
-      <div className="lg:hidden bg-white dark:bg-charcoal-950 border-b border-ivory-300 dark:border-stone-800 p-3.5 flex items-center justify-between sticky top-0 z-40 transition-colors shadow-sm">
-        <div className="flex items-center gap-2">
-          <Shield className="w-4 h-4 text-burgundy-800 dark:text-brass-400" />
-          <span className="font-serif text-sm font-semibold text-charcoal-800 dark:text-ivory-100">Chamber Admin</span>
-          <span className="text-[9px] bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 px-1.5 py-0.2 rounded border border-amber-300 dark:border-amber-600/40 font-mono font-bold">
-            DEMO
-          </span>
-        </div>
-        
-        <div className="flex items-center gap-2">
-          <ThemeToggle variant="compact" />
+      <div className="lg:hidden bg-white dark:bg-charcoal-950 border-b border-ivory-300 dark:border-stone-800 p-3 sm:p-3.5 flex items-center justify-between sticky top-0 z-40 transition-colors shadow-sm">
+        <div className="flex items-center gap-2 min-w-0">
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="p-1.5 rounded border border-ivory-300 dark:border-stone-800 text-charcoal-800 dark:text-stone-300"
+            className="p-1.5 rounded-lg border border-ivory-300 dark:border-stone-800 text-charcoal-800 dark:text-stone-300 hover:text-burgundy-800 shrink-0"
             aria-label="Toggle admin menu"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
+          
+          <div className="flex items-center gap-1.5 min-w-0">
+            <span className="font-serif text-sm font-semibold text-charcoal-800 dark:text-ivory-100 truncate">
+              {location.pathname === '/admin'
+                ? 'Admin Dashboard'
+                : location.pathname.startsWith('/admin/cases')
+                ? 'Cases & Matters'
+                : location.pathname.startsWith('/admin/calendar')
+                ? 'Calendar & Schedule'
+                : location.pathname.startsWith('/admin/leads')
+                ? 'Consultation Leads'
+                : location.pathname.startsWith('/admin/clients')
+                ? 'Clients Directory'
+                : location.pathname.startsWith('/admin/documents')
+                ? 'Document Vault'
+                : 'Chamber Admin'}
+            </span>
+            <span className="text-[8.5px] bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 px-1.5 py-0.2 rounded border border-amber-300 dark:border-amber-600/40 font-mono font-bold shrink-0">
+              DEMO
+            </span>
+          </div>
+        </div>
+        
+        <div className="flex items-center gap-2 shrink-0">
+          <ThemeToggle variant="compact" />
         </div>
       </div>
 
