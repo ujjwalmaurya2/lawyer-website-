@@ -26,11 +26,7 @@ export const ConsultationTeaser: React.FC = () => {
           </h2>
 
           <p className="text-sm sm:text-base font-serif text-brass-300/90 italic">
-            A clear first conversation can help identify the next legal step.
-          </p>
-
-          <p className="text-xs sm:text-sm text-ivory-200/90 font-sans font-light max-w-lg mx-auto text-balance leading-relaxed pt-0.5">
-            Share the essentials of your High Court matter for a confidential, structured assessment with Advocate Ashutosh Pandey.
+            A clear first conversation helps identify the next legal step.
           </p>
         </div>
 

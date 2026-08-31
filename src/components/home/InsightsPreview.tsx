@@ -92,19 +92,8 @@ export const InsightsPreview: React.FC = () => {
                   <h3 className="text-xl sm:text-2xl md:text-[1.75rem] font-serif text-charcoal-800 dark:text-ivory-100 font-normal group-hover:text-burgundy-800 dark:group-hover:text-brass-300 transition-colors leading-snug">
                     {featured.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-stone-600 dark:text-stone-300 font-sans font-light leading-relaxed">
+                  <p className="text-xs sm:text-sm text-stone-600 dark:text-stone-300 font-sans font-light leading-relaxed line-clamp-3">
                     {featured.excerpt}
-                  </p>
-                </div>
-
-                {/* Key Takeaways Callout Box with Icon */}
-                <div className="p-3.5 rounded-xl bg-ivory-150 dark:bg-charcoal-900 border border-ivory-300 dark:border-stone-800 space-y-1.5 text-xs text-stone-700 dark:text-stone-300">
-                  <div className="flex items-center gap-1.5 font-mono uppercase tracking-wider text-burgundy-800 dark:text-brass-400 font-bold text-[10px]">
-                    <FileText className="w-3 h-3" />
-                    <span>Core Procedural Rule:</span>
-                  </div>
-                  <p className="font-light leading-relaxed text-[11px]">
-                    {featured.keyTakeaways[0]}
                   </p>
                 </div>
               </div>

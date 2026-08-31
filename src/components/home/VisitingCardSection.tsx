@@ -11,7 +11,7 @@ export const VisitingCardSection: React.FC = () => {
           eyebrowColor="burgundy"
           title="Keep the Chamber Contact"
           hindiTitle="डिजिटल संपर्क पत्रक (Visiting Card)"
-          description="Save Advocate Ashutosh Pandey's verified chamber contact details directly to your smartphone or desktop for immediate reference."
+          description="Save verified chamber contact details directly to your smartphone or contacts."
           align="center"
         />
 

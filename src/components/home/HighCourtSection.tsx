@@ -40,7 +40,7 @@ export const HighCourtSection: React.FC = () => {
           </p>
 
           <p className="text-xs sm:text-sm text-ivory-200/90 font-sans font-light leading-relaxed max-w-2xl pt-1">
-            Operating from one of the most historic and revered judicial institutions in the Republic of India. The chamber serves as the operational headquarters for High Court appellate briefings, registry filings, and constitutional petitions.
+            Headquarters for High Court appellate briefings, registry filings, and constitutional writ petitions.
           </p>
         </div>
 

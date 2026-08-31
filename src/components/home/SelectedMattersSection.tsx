@@ -26,7 +26,7 @@ export const SelectedMattersSection: React.FC = () => {
             eyebrowColor="burgundy"
             title="Selected Matters & Case Trajectories"
             hindiTitle="चयनित विधिक प्रकरण एवं प्रक्रिया"
-            description="Representative legal proceedings illustrating litigation milestones before the High Court. Client identities and sensitive particulars are anonymized."
+            description="Representative litigation milestones before the High Court. Client particulars are anonymized."
             className="mb-0"
           />
 

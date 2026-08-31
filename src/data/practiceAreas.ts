@@ -7,8 +7,8 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     number: "01",
     title: "Criminal Law & Bail Matters",
     hindiTitle: "दांडिक विधि एवं जमानत याचिकाएं",
-    shortDescription: "Anticipatory bails, regular bails, criminal revisions, appeals, and quashing petitions under CrPC / BNSS before the High Court.",
-    detailedOverview: "Representation across stages of criminal litigation before the High Court of Judicature at Allahabad. Practice encompasses bail applications, quashing of FIRs and charge-sheets under Section 482 CrPC / relevant Bharatiya Nagarik Suraksha Sanhita (BNSS) provisions, criminal appeals, revisions, and suspension of sentence petitions.",
+    shortDescription: "Bail petitions, FIR quashing (482), criminal appeals, and sentence suspension.",
+    detailedOverview: "Representation across stages of criminal litigation before the High Court of Judicature at Allahabad. Practice encompasses regular bail applications, anticipatory bail, quashing of FIRs and charge-sheets under Section 482 CrPC / BNSS, criminal appeals, revisions, and suspension of sentence petitions.",
     commonMatters: [
       "Regular Bail & Anticipatory Bail Petitions",
       "Petitions for Quashing of FIR / Charge-sheet (U/S 482)",
@@ -36,7 +36,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     number: "02",
     title: "Civil Litigation & Appeals",
     hindiTitle: "दीवानी वाद एवं अपील",
-    shortDescription: "First Appeals, Second Appeals, Civil Revisions, injunction disputes, property rights, and commercial litigation.",
+    shortDescription: "First & Second Appeals (S. 100 CPC), civil revisions, and property injunction suits.",
     detailedOverview: "Handling complex civil disputes involving property titles, injunctions, partition suits, contract enforcement, and commercial litigation before the High Court. Focus on substantial questions of law in Second Appeals (Section 100 CPC) and First Appeals against decrees.",
     commonMatters: [
       "First Appeals (FA) & First Appeals from Orders (FAFO)",
@@ -63,7 +63,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     number: "03",
     title: "Constitutional & Writ Matters",
     hindiTitle: "संवैधानिक एवं रिट याचिकाएं",
-    shortDescription: "Writ Petitions under Article 226/227 — Mandamus, Certiorari, Prohibition, Quo Warranto, and Fundamental Rights enforcement.",
+    shortDescription: "Writ petitions under Article 226/227, mandamus, certiorari, and fundamental rights.",
     detailedOverview: "Challenging arbitrary state action, administrative orders, and regulatory excess through extraordinary writ jurisdiction under Article 226 and supervisory jurisdiction under Article 227 of the Constitution of India before the Allahabad High Court.",
     commonMatters: [
       "Writ of Mandamus (Directing authorities to perform statutory duties)",
@@ -90,7 +90,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     number: "04",
     title: "Service & Administrative Matters",
     hindiTitle: "सेवा एवं प्रशासनिक मामले",
-    shortDescription: "Government employee disputes, promotions, seniority lists, departmental inquiries, suspensions, and pension entitlements.",
+    shortDescription: "Service disputes, promotions, seniority lists, suspensions, and pension entitlements.",
     detailedOverview: "Legal representation for state government employees, teachers, university staff, public sector undertakings, and police personnel facing arbitrary termination, suspension, recovery, or denial of promotional and retirement benefits.",
     commonMatters: [
       "Challenging arbitrary Suspension and Departmental Inquiries",
@@ -117,7 +117,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     number: "05",
     title: "Family & Matrimonial Matters",
     hindiTitle: "पारिवारिक एवं वैवाहिक विवाद",
-    shortDescription: "High Court appeals against Family Court orders, maintenance revisions, custody disputes, and matrimonial settlement proceedings.",
+    shortDescription: "Matrimonial appeals, maintenance revisions (125 CrPC), and custody proceedings.",
     detailedOverview: "Strategic advocacy before the High Court in appeals arising from Family Court decrees, Section 125 CrPC / BNSS maintenance revision petitions, Domestic Violence Act appeals, and child custody / guardianship matters with emphasis on dignity and legal precision.",
     commonMatters: [
       "First Appeals against Family Court Divorce / Restitution decrees",
@@ -143,7 +143,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     number: "06",
     title: "Other Legal Matters & Advisory",
     hindiTitle: "अन्य विधिक मामले एवं परामर्श",
-    shortDescription: "Revenue court challenges, contempt petitions under Article 215, arbitration applications, and pre-litigation chamber advisory.",
+    shortDescription: "Contempt petitions, revenue appeals, arbitration, and chamber legal advisory.",
     detailedOverview: "Broader legal advocacy including Contempt Petitions (Contempt of Courts Act / Article 215) for non-compliance of High Court orders, Revenue Court appeals (UP Revenue Code), Motor Accident Claim appeals, and confidential pre-litigation legal opinions.",
     commonMatters: [
       "Contempt Petitions for non-compliance of High Court directions",

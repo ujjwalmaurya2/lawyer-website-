@@ -148,7 +148,7 @@ export const Footer: React.FC = () => {
             Bar Council of India Statutory Disclaimer
           </p>
           <p>
-            {INSTITUTIONAL_INFO.disclaimer} This digital platform is designed to provide informational transparency and direct chamber contact facility upon visitor solicitation. No material contained on this website is intended to be legal advice.
+            {INSTITUTIONAL_INFO.disclaimer}
           </p>
         </div>
 
