@@ -92,19 +92,19 @@ export const Navbar: React.FC = () => {
           : 'py-2.5 sm:py-3 shadow-md'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-4">
+      <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between gap-2 sm:gap-4 w-full">
           
           {/* Logo / Advocate Monogram & Name */}
-          <Link to="/" className="flex items-center gap-2.5 sm:gap-3 shrink-0 group" aria-label="Advocate Ashutosh Pandey Homepage">
-            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg border-2 border-brass-400 bg-[#4A151F] dark:bg-charcoal-850 flex items-center justify-center font-serif text-ivory-50 dark:text-brass-400 font-bold text-sm sm:text-base group-hover:border-brass-300 transition-colors shadow-sm">
+          <Link to="/" className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1 lg:flex-initial group" aria-label="Advocate Ashutosh Pandey Homepage">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg border-2 border-brass-400 bg-[#4A151F] dark:bg-charcoal-850 flex items-center justify-center font-serif text-ivory-50 dark:text-brass-400 font-bold text-sm sm:text-base group-hover:border-brass-300 transition-colors shadow-sm shrink-0">
               AP
             </div>
-            <div className="flex flex-col">
-              <span className="font-serif text-sm sm:text-base tracking-tight text-ivory-50 dark:text-ivory-100 font-normal group-hover:text-brass-300 transition-colors leading-tight">
+            <div className="flex flex-col min-w-0">
+              <span className="font-serif text-xs sm:text-base tracking-tight text-ivory-50 dark:text-ivory-100 font-normal group-hover:text-brass-300 transition-colors leading-tight truncate">
                 ASHUTOSH PANDEY
               </span>
-              <span className="text-[8.5px] sm:text-[9.5px] font-mono tracking-[0.16em] text-brass-400 uppercase font-bold leading-tight mt-0.5">
+              <span className="text-[8px] sm:text-[9.5px] font-mono tracking-[0.12em] sm:tracking-[0.16em] text-brass-400 uppercase font-bold leading-tight mt-0.5 truncate">
                 Advocate · High Court Allahabad
               </span>
             </div>
@@ -303,20 +303,23 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Tablet & Mobile Actions: Theme + Quick Consult + Hamburger */}
-          <div className="flex lg:hidden items-center gap-2">
-            <ThemeToggle variant="compact" />
+          <div className="flex lg:hidden items-center gap-1.5 sm:gap-2 shrink-0">
+            <div className="shrink-0">
+              <ThemeToggle variant="compact" />
+            </div>
 
             <Link
               to="/consultation"
-              className="text-[10px] uppercase tracking-wider px-2 py-1 bg-[#4A151F] text-ivory-50 border border-brass-400 font-bold rounded shadow-sm font-mono"
+              className="shrink-0 text-[9px] sm:text-[10px] uppercase tracking-wider px-2 sm:px-2.5 py-1 sm:py-1.5 bg-[#4A151F] text-ivory-50 border border-brass-400 font-bold rounded shadow-sm font-mono hover:bg-[#380E16] active:scale-95 transition-all"
             >
               Consult
             </Link>
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-1.5 rounded border border-brass-500/50 text-ivory-100 hover:text-brass-300 focus:outline-none"
+              className="shrink-0 w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-lg border border-brass-500/60 bg-[#4A151F]/80 text-ivory-100 hover:text-brass-300 hover:border-brass-400 active:bg-burgundy-950 focus:outline-none transition-all cursor-pointer shadow-xs"
               aria-label="Toggle navigation menu"
+              aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
