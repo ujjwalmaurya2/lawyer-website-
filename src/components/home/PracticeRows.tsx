@@ -9,7 +9,7 @@ import {
   Landmark,
   BriefcaseBusiness,
   UsersRound,
-  Lightbulb,
+  MessageCircle,
   ArrowUpRight,
   ChevronRight,
 } from 'lucide-react';
@@ -17,7 +17,7 @@ import {
 export const PracticeRows: React.FC = () => {
   const [activeId, setActiveId] = useState<string | null>(null);
 
-  // Distinct, non-repeated semantic Lucide icons
+  // Six clearly distinct, semantically appropriate Lucide icons
   const getPracticeIcon = (slug: string) => {
     switch (slug) {
       case 'criminal-law-bail':
@@ -32,7 +32,7 @@ export const PracticeRows: React.FC = () => {
         return <UsersRound className="w-8 h-8 sm:w-9 sm:h-9" />;
       case 'other-legal-matters-advisory':
       default:
-        return <Lightbulb className="w-8 h-8 sm:w-9 sm:h-9" />;
+        return <MessageCircle className="w-8 h-8 sm:w-9 sm:h-9" />;
     }
   };
 
@@ -62,7 +62,7 @@ export const PracticeRows: React.FC = () => {
           </div>
         </div>
 
-        {/* Large Icon-First Editorial Directory Rows (No Repeated Generic Icons!) */}
+        {/* Large Icon-First Editorial Directory Rows with 6 Unique Semantic Icons */}
         <div className="border-t-2 border-charcoal-800/10 dark:border-stone-800 divide-y divide-ivory-300 dark:divide-stone-800">
           {PRACTICE_AREAS.map((area) => {
             const isActive = activeId === area.id;
@@ -85,7 +85,7 @@ export const PracticeRows: React.FC = () => {
                   {/* Left: Practice Area Icon + Oversized Number + Large Title */}
                   <div className="flex items-start sm:items-center gap-4 sm:gap-6">
                     
-                    {/* Practice Area Icon Box (36–48px visual size) */}
+                    {/* Practice Area Icon Box (36–48px visual size with restrained hover animation) */}
                     <div
                       className={`w-14 h-14 sm:w-16 sm:h-16 rounded-xl border flex items-center justify-center shrink-0 transition-all duration-300 ${
                         isActive

@@ -12,7 +12,7 @@ import {
   Landmark,
   BriefcaseBusiness,
   UsersRound,
-  Lightbulb,
+  MessageCircle,
   MessageSquare,
   Scale,
   ClipboardList,
@@ -43,7 +43,7 @@ export const PracticeAreaDetailPage: React.FC = () => {
         return <UsersRound className="w-9 h-9 sm:w-10 sm:h-10 text-burgundy-800 dark:text-brass-400" />;
       case 'other-legal-matters-advisory':
       default:
-        return <Lightbulb className="w-9 h-9 sm:w-10 sm:h-10 text-burgundy-800 dark:text-brass-400" />;
+        return <MessageCircle className="w-9 h-9 sm:w-10 sm:h-10 text-burgundy-800 dark:text-brass-400" />;
     }
   };
 

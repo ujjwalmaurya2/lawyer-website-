@@ -3,9 +3,36 @@ import { Link } from 'react-router-dom';
 import { PRACTICE_AREAS } from '../../data/practiceAreas';
 import { Badge } from '../../components/common/Badge';
 import { Button } from '../../components/common/Button';
-import { ArrowUpRight, FileText } from 'lucide-react';
+import {
+  ArrowUpRight,
+  FileText,
+  ShieldCheck,
+  Landmark,
+  BriefcaseBusiness,
+  UsersRound,
+  MessageCircle,
+} from 'lucide-react';
 
 export const PracticeAreasPage: React.FC = () => {
+  // Six clearly distinct semantic icons
+  const getPracticeIcon = (slug: string) => {
+    switch (slug) {
+      case 'criminal-law-bail':
+        return <ShieldCheck className="w-7 h-7 sm:w-8 sm:h-8 text-burgundy-800 dark:text-brass-400" />;
+      case 'civil-litigation-appeals':
+        return <FileText className="w-7 h-7 sm:w-8 sm:h-8 text-burgundy-800 dark:text-brass-400" />;
+      case 'constitutional-writ-petitions':
+        return <Landmark className="w-7 h-7 sm:w-8 sm:h-8 text-burgundy-800 dark:text-brass-400" />;
+      case 'service-administrative-matters':
+        return <BriefcaseBusiness className="w-7 h-7 sm:w-8 sm:h-8 text-burgundy-800 dark:text-brass-400" />;
+      case 'family-matrimonial-matters':
+        return <UsersRound className="w-7 h-7 sm:w-8 sm:h-8 text-burgundy-800 dark:text-brass-400" />;
+      case 'other-legal-matters-advisory':
+      default:
+        return <MessageCircle className="w-7 h-7 sm:w-8 sm:h-8 text-burgundy-800 dark:text-brass-400" />;
+    }
+  };
+
   return (
     <div className="pt-24 sm:pt-28 pb-20 sm:pb-24 bg-ivory-100 dark:bg-[#0B0D0E] transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
@@ -31,12 +58,17 @@ export const PracticeAreasPage: React.FC = () => {
               key={area.id}
               className="p-6 sm:p-8 md:p-10 rounded-2xl bg-white dark:bg-charcoal-850 border border-ivory-300 dark:border-stone-800 hover:border-burgundy-800/60 dark:hover:border-stone-700 transition-all space-y-6 sm:space-y-8 shadow-card-light dark:shadow-none"
             >
-              {/* Header Row */}
+              {/* Header Row with Distinct Practice Icon */}
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 border-b border-ivory-300/80 dark:border-stone-800/80 pb-5">
-                <div className="flex items-start gap-4 sm:gap-6">
+                <div className="flex items-center gap-4 sm:gap-6">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl border border-ivory-300 dark:border-stone-700 bg-ivory-150 dark:bg-charcoal-800 flex items-center justify-center shrink-0 shadow-sm">
+                    {getPracticeIcon(area.slug)}
+                  </div>
+                  
                   <span className="font-mono text-2xl sm:text-3xl md:text-4xl text-burgundy-800 dark:text-brass-400 font-bold">
                     {area.number}
                   </span>
+
                   <div>
                     <h2 className="text-xl sm:text-2xl md:text-3xl font-serif text-charcoal-800 dark:text-ivory-100 font-normal">
                       {area.title}
